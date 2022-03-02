@@ -1,3 +1,7 @@
+<?php
+   session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,9 +57,9 @@
             <div>
                 <b> DIGITE SEUS DADOS: </b>
             </div>
-            <form>
-                <input type="text" id="login" class="fadeIn second" name="email" placeholder="Digite seu login">
-                <input type="text" id="password" class="fadeIn third" name="senha" placeholder="Digite sua senha">
+            <form action="../script/log.php" method="POST">
+                <input type="text" id="login" class="fadeIn second" name="email" placeholder="Digite seu login" required>
+                <input type="text" id="password" class="fadeIn third" name="senha" placeholder="Digite sua senha" required>
                 <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" value="Log In">
             </form>
         </div>
