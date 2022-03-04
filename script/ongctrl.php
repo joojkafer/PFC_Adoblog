@@ -39,7 +39,7 @@ if(isset($_GET['edit'])){
         
         ?>
         <div style="position:relative;">
-            <div class="wrapper fadeInDown" style="position:absolute; max-heigth:50%; z-index: 10040;">
+            <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
                 <div id="formContent">
                     <div class="fadeIn first" style="position: relative; right: 1.5%;">
                         <img class="loguserimg" src="../images/user_edit_register.png" id="icon" alt="User Icon" />

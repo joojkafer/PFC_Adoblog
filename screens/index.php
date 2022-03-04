@@ -90,7 +90,7 @@
            <tr>
             <td>
             <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Animal 1
                 </button>
 
@@ -137,7 +137,7 @@
 
             <td>
             <!-- Button to Open the Modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="botaoAnimal data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -169,7 +169,7 @@
 
             <td>
             <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="botaoAnimal data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -203,7 +203,7 @@
            <tr>
             <td>
             <!-- Button to Open the Modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -234,7 +234,7 @@
 
             <td>
             <!-- Button to Open the Modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -266,7 +266,7 @@
 
             <td>
             <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -301,7 +301,7 @@
 
             <td>
            <!-- Button to Open the Modal -->
-           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+           <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -332,7 +332,7 @@
 
             <td>
             <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -364,7 +364,7 @@
             </td>
             <td>
             <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 

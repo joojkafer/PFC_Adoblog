@@ -420,3 +420,25 @@ td{
     width: 600px;
     height: 385px;
 }
+.botaoAnimal{
+    position: relative;
+    float: left;
+    width: 99%;
+    height: 300%;
+    font-weight: bold;
+    background-image: url(../images/cachorro.png);
+    background-size: 100% 100%;
+    border-radius: 6%;
+    transition: 0.5s;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    font-size: 250%;
+    overflow: hidden;
+}
+.botaoAnimal:hover{
+    filter: brightness(65%);    
+    transition: 0.75s;
+    background-size: 105% 105%;
+    text-indent: 0;
+    color: black;
+}
