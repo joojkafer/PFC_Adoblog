@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light py-3" style="background-color: #A5EB78;">
         <a class="navbar-brand" href="index.php"> 
-            <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
+            <img src="../images/logo.png" class="thumbnail" alt="Logo"> 
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
             <div>
                 <b class="fadeIn second"> FORMULÁRIO ENVIADO! EM BREVE OS <BR> ADMINISTRADORES IRÃO CRIAR SUA POSTAGEM. </b>
             </div>
-            <form action="login.php">
+            <form action="index.php">
                 <input type="submit" style="background-color:#A5EB78; margin-top: 20px;"class="fadeIn third" value="PÁGINA INICIAL">
             </form>
         </div>
@@ -62,7 +62,7 @@
                 <div class="col-6 col-md ft1" style="margin-left: 30px;">
                     <h5>Adote e/ou Doe</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Adote um animal</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="index.php">Adote um animal</a></li>
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="doarform.php">Doe um animal</a></li>
                     </ul>
                 </div>

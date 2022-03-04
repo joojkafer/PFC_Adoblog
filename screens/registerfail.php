@@ -1,3 +1,7 @@
+<?php
+    require_once '../script/denyaccess.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,3 +1,7 @@
+<?php 
+    session_start(); 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +13,9 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../script/showmodal.js"></script>
 </head> 
 
@@ -25,28 +29,58 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto" style="border: 1px solid black;
+            <ul class="navbar-nav mx-auto" style="border: 1px solid black;
                                                   border-radius: 8px;
                                                   padding-top: 0px;
                                                   padding-bottom: 0px;
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
-                <li class="nav-item active" style="padding-left:18px;">
-                    <a class="nav-link active" href="#"> Adote </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="doarform.php"> Doe </a>
-                </li>
+                <?php
+                    if(!$_SESSION){
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='doarform.php'> Doar </a>
+                            </li>
+                        ";
+                    }else{
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='createpost.php'> Doar </a>
+                            </li>
+                        ";
+                    }
+                ?>
                 <li class="nav-item">
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="login.php"> Entrar </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="registerong.php" style="padding-right:18px;"> Cadastrar </a>
-                </li>
+                <?php
+                    if(!$_SESSION){
+                        echo "
+                            <li class='nav-item'>
+                                <a class='nav-link active' href='login.php'> Entrar </a>
+                            </li>
+                            <li class='nav-item'>
+                                <a class='nav-link active' href='registerong.php' style='padding-right:18px;'> Cadastrar </a>
+                            </li>
+                        ";
+                    }else{ 
+                        echo "
+                            <li>
+                                <a class='nav-link active' href='../script/logout.php'> Logout </a>
+                            </li>
+                        ";
+
+                        echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php' style='padding-right:18px;'>";
+                            $email = $_SESSION['email'];
+                            print_r($email); 
+                        echo "</a> </li>";
+                    }
+                ?>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Procurar..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+            </form>
         </div>
     </nav>
 

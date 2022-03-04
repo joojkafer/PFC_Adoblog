@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar | Adoblog</title>
-    <link rel="stylesheet" type="text/css" href="../styles/styles_ongctrl.css">
+    <link rel="stylesheet" type="text/css" href="../styles/ongctrl.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -39,12 +39,15 @@ if(isset($_GET['edit'])){
         
         ?>
         <div style="position:relative;">
-            <div class="wrapper fadeInDown" style="position:absolute; max-heigth:100%;">
+            <div class="wrapper fadeInDown" style="position:absolute; max-heigth:50%; z-index: 10040;">
                 <div id="formContent">
+                    <div class="fadeIn first" style="position: relative; right: 1.5%;">
+                        <img class="loguserimg" src="../images/user_edit_register.png" id="icon" alt="User Icon" />
+                    </div>
                     <div class="wrap-div">
                         <b> ATUALIZE OS DADOS DA SUA ONG: </b>
                     </div>
-                    <form action="../screens/admcontrol.php" method="POST">
+                    <form action="../screens/admongcontrol.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
 
                         <input type="text" id="nome" class="fadeIn second" name="nome" value="<?php echo $nome ?>" placeholder="Nome da ONG" required>

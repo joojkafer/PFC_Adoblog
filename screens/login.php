@@ -39,12 +39,23 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="login.php"> Entrar </a>
+                <?php
+                if(!$_SESSION){
+                echo "
+                <li class='nav-item'>
+                    <a class='nav-link active' href='login.php'> Entrar </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="registerong.php" style="padding-right:18px;"> Cadastrar </a>
+                <li class='nav-item'>
+                    <a class='nav-link active' href='registerong.php' style='padding-right:18px;'> Cadastrar </a>
                 </li>
+                ";}else{ 
+                echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php'>";
+
+                $email = $_SESSION['email'];
+                print_r($email); 
+
+                echo "</a></li>";
+                }?>
             </ul>
         </div>
     </nav>

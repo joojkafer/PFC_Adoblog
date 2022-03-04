@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +27,7 @@
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
                 <li class="nav-item active" style="padding-left:18px;">
-                    <a class="nav-link active" href=""> Adote </a>
+                    <a class="nav-link active" href="index.php"> Adote </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="doarform.php"> Doe </a>
@@ -33,12 +35,29 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="login.php"> Entrar </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="registerong.php" style="padding-right:18px;"> Cadastrar </a>
-                </li>
+                <?php
+                    if(!$_SESSION){
+                        echo "
+                            <li class='nav-item'>
+                                <a class='nav-link active' href='login.php'> Entrar </a>
+                            </li>
+                            <li class='nav-item'>
+                                <a class='nav-link active' href='registerong.php' style='padding-right:18px;'> Cadastrar </a>
+                            </li>
+                        ";
+                    }else{ 
+                        echo "
+                            <li>
+                                <a class='nav-link active' href='../script/logout.php'> Logout </a>
+                            </li>
+                        ";
+
+                        echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php'>";
+                            $email = $_SESSION['email'];
+                            print_r($email); 
+                        echo "</a> </li>";
+                    }
+                ?>
             </ul>
         </div>
     </nav>
@@ -71,7 +90,14 @@
                     //verificação de dados como 'email' e 'cnpj', afim de verificar se
                     //já são dados existentes no banco e impedir de cadastrar iguais
                     if(mysqli_num_rows($resultemail) == 1 || mysqli_num_rows($resultcnpj) == 1){
-                        header('Location:registerfail.php');
+                        //header('Location:registerfail.php');
+                        ?>
+
+                        <script> 
+                            alert('Email ou CNPJ já cadastrados, tente novamente com outros dados.');
+                        </script>
+
+                        <?php
                     }else{
                         $mysqli->query("INSERT INTO `tb_ong`(`ong_nome`, `ong_razaosocial`, `ong_email`, `ong_cnpj`, `ong_estado`, `ong_cidade`, `ong_senha`) 
                         VALUES ('$nome', '$razaosocial', '$email', '$cnpj', '$estado', '$cidade', '$senha')");

@@ -1,3 +1,7 @@
+<?php
+    require_once '../script/verifylogdoacao.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +31,7 @@
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
                 <li class="nav-item active" style="padding-left:18px;">
-                    <a class="nav-link active" href="#"> Adote </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="ongpage.php"> Doe </a>
+                    <a class="nav-link active" href="index.php"> Adote </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
@@ -97,7 +98,7 @@
                 <div class="col-6 col-md ft1" style="margin-left: 30px;">
                     <h5>Adote e/ou Doe</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Adote um animal</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="index.php">Adote um animal</a></li>
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Doe um animal</a></li>
                     </ul>
                 </div>

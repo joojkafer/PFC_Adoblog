@@ -97,7 +97,7 @@
     </div> 
 
     <div>
-        <footer class="container-fluid py-3" style="background: #A5EB78; margin-top: 150px">
+        <footer class="container-fluid py-3" style="background: #A5EB78; margin-top: 150px;">
             <div class="row">
                 <div class="col-6 col-md ft1" style="margin-left: 30px;">
                     <h5>Adote e/ou Doe</h5>

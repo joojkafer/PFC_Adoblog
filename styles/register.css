@@ -87,11 +87,7 @@ h2{
 
 /* STRUCTURE */
 
-.loguserimg{
-    border-style: solid;
-    border-color: white;
-    border-width:15px;
-}
+
   
 .wrapper{
     display: flex;
