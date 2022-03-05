@@ -1,7 +1,7 @@
-<?php 
-    session_start(); 
-    if($_SESSION){
-        header('Location: sairsessaowarning.php');
+<?php
+    session_start();
+    if(!$_SESSION){
+        header('Location: index.php');
         exit();
     }
 ?>
@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login | Adoblog</title>
+    <title>Aviso | Adoblog</title>
     <link rel="stylesheet" type="text/css" href="../styles/registerSF.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light py-3" style="background-color: #A5EB78;">
         <a class="navbar-brand" href="index.php"> 
-            <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
+            <img src="../images/logo.png" class="thumbnail" alt="Logo"> 
         </a>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -35,13 +35,18 @@
                     <a class="nav-link active" href="index.php"> Adote </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="doarform.php"> Doe </a>
+                    <a class="nav-link active" href="pageong.php"> ONG's </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="ongpage.php"> ONG's </a>
+                <li>
+                    <a class="nav-link active" href="../script/logout.php"> Logout </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="registerong.php" style="padding-right:18px;"> Cadastrar </a>
+                <li class="nav-item"> 
+                    <a class="nav-link active" href="ongpage.php" style="padding-right:18px;">
+                        <?php
+                            $nome = $_SESSION['login'];
+                            print_r($nome); 
+                        ?>
+                    </a> 
                 </li>
             </ul>
         </div>
@@ -50,19 +55,20 @@
     <div class="wrapper fadeInDown">
         <div id="formContent">
             <div class="fadeIn first">
-                <img class="loguserimg" src="../images/user_icon_error_registered.png" id="icon" alt="User Icon" />
+                <img class="loguserimg" src="../images/icon_alert.png" id="icon" alt="User Icon" />
             </div>
             <div>
-                <b class="fadeIn second"> USUÁRIO OU SENHAS INCORRETOS! </b>
+                <b class="fadeIn second"> VOCÊ ESTÁ EM UMA SESSÃO! <BR>
+                PARA ACESSAR ESSA PÁGINA SAIA DE SUA SESSÃO. </b>
             </div>
-            <form action="login.php">
-                <input type="submit" style="background-color:#A5EB78;"class="fadeIn third" value="TENTAR NOVAMENTE">
+            <form action="index.php">
+                <input type="submit" style="background-color:#A5EB78; margin-top: 20px;"class="fadeIn third" value="OK">
             </form>
         </div>
     </div>
 
     <div class="fadeIn footer">
-        <footer class="container-fluid py-3" style="background: #A5EB78; height: 125%;">
+        <footer class="container-fluid py-3" style="background: #A5EB78;">
             <div class="row">
                 <div class="col-6 col-md ft1" style="margin-left: 30px;">
                     <h5>Adote e/ou Doe</h5>
@@ -85,7 +91,7 @@
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Nossa equipe</a></li>
                     </ul>
                 </div>
+            </div>
         </footer>
-    </div>
     </div>
 </body>

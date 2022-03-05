@@ -19,9 +19,6 @@
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="border: 1px solid black;
@@ -55,27 +52,27 @@
                 <b> PREENCHA OS CAMPOS ABAIXO COM SEUS <br> RESPECTIVOS DADOS E DO ANIMAL: </b>
             </div>
             <form method="POST">
-            <?php 
-            //função de adição de dados do "formulário para criação de post" no banco
-                require_once '../script/connection.php';
+                <?php 
+                    //função de adição de dados do "formulário para criação de post" no banco
+                    require_once '../script/connection.php';
                 
-                if(isset($_POST['sendform'])){
-                    $nome = $_POST['nome'];
-                    $raca = $_POST['raca'];
-                    $cor = $_POST['cor'];
-                    $idade = $_POST['idade'];
-                    $descricao = $_POST['descricao'];
-                    $estado = $_POST['estado'];
-                    $cidade = $_POST['cidade'];
-                    $telefone = $_POST['telefone'];
-                    $email = $_POST['email'];
+                    if(isset($_POST['sendform'])){
+                        $nome = $_POST['nome'];
+                        $raca = $_POST['raca'];
+                        $cor = $_POST['cor'];
+                        $idade = $_POST['idade'];
+                        $descricao = $_POST['descricao'];
+                        $estado = $_POST['estado'];
+                        $cidade = $_POST['cidade'];
+                        $telefone = $_POST['telefone'];
+                        $email = $_POST['email'];
 
-                    $mysqli->query("INSERT INTO `tb_animalform`(`anm_nome`, `anm_raca`, `anm_cor`, `anm_idade`, `anm_descricao`, `anm_estado`, `anm_cidade`, `anm_telefone`, `anm_email`) 
-                    VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email')");
+                        $mysqli->query("INSERT INTO `tb_animalform`(`anm_nome`, `anm_raca`, `anm_cor`, `anm_idade`, `anm_descricao`, `anm_estado`, `anm_cidade`, `anm_telefone`, `anm_email`) 
+                        VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email')");
 
-                    header('Location:doarformsuccess.php');
-                }
-            ?>
+                        header('Location:doarformsuccess.php');
+                    }
+                ?>
 
                 <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome da animal" required>
                 <input type="text" id="raca" class="fadeIn third" name="raca" placeholder="Raça" required>

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!$_SESSION){
+        header('Location: index.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +23,6 @@
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="border: 1px solid black;
@@ -26,20 +31,19 @@
                                                   padding-bottom: 0px;
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
-                <li class="nav-item active" style="padding-left:18px;">
-                    <a class="nav-link active" href="#"> Adote </a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="doarform.php"> Doe </a>
+                    <a class="nav-link active" href="ongpage.php" style="padding-left:18px;"> ONG's </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="ongpage.php"> ONG's </a>
+                <li>
+                    <a class="nav-link active" href="../script/logout.php"> Logout </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="login.php"> Entrar </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="registerong.php" style="padding-right:18px;"> Cadastrar </a>
+                <li class="nav-item"> 
+                    <a class="nav-link active" href="ongpage.php" style="padding-right:18px;">
+                        <?php
+                            $nome = $_SESSION['login'];
+                            print_r($nome); 
+                        ?>
+                    </a> 
                 </li>
             </ul>
         </div>
@@ -47,7 +51,6 @@
 
     <div class="wrapper fadeInDown">
         <div id="formContent">
-
             <div>
                 <b style="margin:20px;"> NOVA PUBLICAÇÃO: </b>
             </div>
@@ -65,7 +68,7 @@
                 <div class="col-6 col-md ft1" style="margin-left: 30px;">
                     <h5>Adote e/ou Doe</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Adote um animal</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="index.php">Adote um animal</a></li>
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="doarform.php">Doe um animal</a></li>
                     </ul>
                 </div>

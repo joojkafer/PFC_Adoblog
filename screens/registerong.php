@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    if($_SESSION){
+        header('Location: sairsessaowarning.php');
+        exit();
+    }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -16,9 +22,7 @@
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="border: 1px solid black;
                                                   border-radius: 8px;
@@ -35,29 +39,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
                 </li>
-                <?php
-                    if(!$_SESSION){
-                        echo "
-                            <li class='nav-item'>
-                                <a class='nav-link active' href='login.php'> Entrar </a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link active' href='registerong.php' style='padding-right:18px;'> Cadastrar </a>
-                            </li>
-                        ";
-                    }else{ 
-                        echo "
-                            <li>
-                                <a class='nav-link active' href='../script/logout.php'> Logout </a>
-                            </li>
-                        ";
-
-                        echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php'>";
-                            $email = $_SESSION['email'];
-                            print_r($email); 
-                        echo "</a> </li>";
-                    }
-                ?>
+                <li class="nav-item">
+                    <a class="nav-link active" href="login.php"> Entrar </a>
+                </li>
             </ul>
         </div>
     </nav>

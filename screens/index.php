@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Adoblog - Início</title>
+    <title>Início | Adoblog</title>
     <link rel="stylesheet" type="text/css" href="../styles/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -24,9 +24,6 @@
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto" style="border: 1px solid black;
@@ -65,15 +62,18 @@
                         ";
                     }else{ 
                         echo "
-                            <li>
+                            <li class='nav-item'>
                                 <a class='nav-link active' href='../script/logout.php'> Logout </a>
                             </li>
                         ";
 
-                        echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php' style='padding-right:18px;'>";
-                            $email = $_SESSION['email'];
-                            print_r($email); 
-                        echo "</a> </li>";
+                        echo "
+                            <li class='nav-item'> 
+                                <a class='nav-link active' href='ongpage.php' style='padding-right:18px;'>";
+                                    $nome = $_SESSION['login'];
+                                    print_r($nome); 
+                        echo "  </a> 
+                            </li>";
                     }
                 ?>
             </ul>
@@ -405,12 +405,11 @@
         <div class="containerMSG">
            <h1 class="tituloContainer"> <b> Sobre o Blog </b> </h1>
             <div class="textoContainer">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <p style="font-size: 15px;"> 
+                    ㅤ O Adoblog foi criado a partir da ideia de não ter um local próprio, único e pensando
+                    para a adoção e doação de animais. Foi daí que decidimos criar o Adoblog, tendo em mente
+                    a produção de algo funcional, rápido e seguro.
+                </p>
             </div>
         </div>
 

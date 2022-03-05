@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Adoblog - Início</title>
+    <title>ONG's | Adoblog</title>
     <link rel="stylesheet" type="text/css" href="../styles/ongprofilemodel.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -16,7 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
 </head> 
 
 <body>
@@ -24,9 +23,6 @@
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto" style="border: 1px solid black;
@@ -35,23 +31,8 @@
                                                   padding-bottom: 0px;
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
-                <?php
-                    if(!$_SESSION){
-                        echo "
-                            <li class='nav-item' style='padding-left:18px;'>
-                                <a class='nav-link active' href='doarform.php'> Doar </a>
-                            </li>
-                        ";
-                    }else{
-                        echo "
-                            <li class='nav-item' style='padding-left:18px;'>
-                                <a class='nav-link active' href='createpost.php'> Doar </a>
-                            </li>
-                        ";
-                    }
-                ?>
-                <li class="nav-item">
-                    <a class="nav-link active" href="ongpage.php"> ONG's </a>
+                <li class='nav-item' style='padding-left:18px;'>
+                    <a class='nav-link active' href='doarform.php'> Doar </a>
                 </li>
                 <?php
                     if(!$_SESSION){
@@ -71,8 +52,8 @@
                         ";
 
                         echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php' style='padding-right:18px;'>";
-                            $email = $_SESSION['email'];
-                            print_r($email); 
+                            $nome = $_SESSION['login'];
+                            print_r($nome); 
                         echo "</a> </li>";
                     }
                 ?>

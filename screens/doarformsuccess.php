@@ -1,3 +1,11 @@
+<?php 
+    session_start(); 
+    if($_SESSION){
+        header('Location: sairsessaowarning.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +23,6 @@
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png" class="thumbnail" alt="Logo"> 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="border: 1px solid black;
@@ -27,7 +32,7 @@
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
                 <li class="nav-item active" style="padding-left:18px;">
-                    <a class="nav-link active" href="#"> Adote </a>
+                    <a class="nav-link active" href="index.php"> Adote </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="pageong.php"> ONG's </a>

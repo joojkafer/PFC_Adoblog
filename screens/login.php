@@ -1,5 +1,9 @@
-<?php
-   session_start();
+<?php 
+    session_start(); 
+    if($_SESSION){
+        header('Location: sairsessaowarning.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +23,6 @@
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="border: 1px solid black;
@@ -31,7 +32,7 @@
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
                 <li class="nav-item active" style="padding-left:18px;">
-                    <a class="nav-link active" href="#"> Adote </a>
+                    <a class="nav-link active" href="index.php"> Adote </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="doarform.php"> Doe </a>
@@ -39,23 +40,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
                 </li>
-                <?php
-                if(!$_SESSION){
-                echo "
-                <li class='nav-item'>
-                    <a class='nav-link active' href='login.php'> Entrar </a>
-                </li>
                 <li class='nav-item'>
                     <a class='nav-link active' href='registerong.php' style='padding-right:18px;'> Cadastrar </a>
                 </li>
-                ";}else{ 
-                echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php'>";
-
-                $email = $_SESSION['email'];
-                print_r($email); 
-
-                echo "</a></li>";
-                }?>
             </ul>
         </div>
     </nav>
@@ -69,8 +56,8 @@
                 <b> DIGITE SEUS DADOS: </b>
             </div>
             <form action="../script/log.php" method="POST">
-                <input type="text" id="login" class="fadeIn second" name="email" placeholder="Digite seu login" required>
-                <input type="text" id="password" class="fadeIn third" name="senha" placeholder="Digite sua senha" required>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Digite seu E-mail" required>
+                <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="Digite sua Senha" required>
                 <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" value="Log In">
             </form>
         </div>
@@ -82,7 +69,7 @@
                 <div class="col-6 col-md ft1" style="margin-left: 30px;">
                     <h5>Adote e/ou Doe</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Adote um animal</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="index.php">Adote um animal</a></li>
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="doarform.php">Doe um animal</a></li>
                     </ul>
                 </div>
