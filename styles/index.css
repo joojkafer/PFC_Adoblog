@@ -277,24 +277,24 @@ h2{
 }
 
 .tituloContainer{
-    
+    position: relative;
     text-align: center;
     text-shadow: 2px 5px 50px;
     font-family: sans-serif;
     font-size: 200%;
     margin: 0.5%;
 }
-
-.containerTexto{
-    border: rgb(22, 89, 177) solid 3px;
-    overflow: hidden;
-    border-left: none;
-    border-right: none;
+.tituloContainerONG{
+    
+    text-align: justify;
+    font-family: sans-serif;
+    font-size: 200%;
+    float: right;
     position: relative;
+    right: 30%;
     top: 10%;
-    height: 50%;
-
 }
+
 .textoContainer{
 
     padding: 1%;

@@ -395,7 +395,28 @@
            </tr>
            </table>
         </div>
-        
+        <div class="containerSobre">
+            <?php require_once '../script/ongselectorname.php' ?>
+            <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 200px; width: 220px; margin: 5%;">
+
+            <h1 class="tituloContainerONG"> <b> ONG <?php echo $row['ong_nome']; ?> </b> <br><br>
+            Estado <br><br>
+            Cidade</h1>
+            <br>
+            
+            
+            
+            <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none;">
+                
+                 <div id="scroll-text" >
+                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+                   eiusmodLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+                   eiusmodLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+                   eiusmod
+
+                 </div>
+            </div>
+        </div>
         <div class="containerMSG">
            <h1 class="tituloContainer"> <b> Sobre o Blog </b> </h1>
             <div class="textoContainer">
@@ -405,18 +426,7 @@
             </div>
         </div>
 
-        <div class="containerSobre">
-            <?php require_once '../script/ongselectorname.php' ?>
-
-            <h1 class="tituloContainer"> <b> Conheça a ONG <?php echo $row['ong_nome']; ?> </b> </h1>
-            <div class="containerTexto">
-                 <div id="scroll-text">
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-                   eiusmod
-
-                 </div>
-            </div>
-        </div>
+        
 
     </div>
     <div class="fadeIn footer">
