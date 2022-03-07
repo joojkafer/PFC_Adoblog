@@ -42,7 +42,6 @@ a{
 .thumbnail{
     width: 140px;
     height: 120px;
-
     transition: .2s;
     margin: 0 auto;
 }
@@ -270,7 +269,7 @@ h2{
     
     border-radius: 30px;
     position: relative;
-    height: 36%;
+    height: 68%;
     width: 45%;
     margin-top: 1%;
     float: left;
@@ -297,12 +296,15 @@ h2{
 
 }
 .textoContainer{
-    
+
+    padding: 1%;
+    margin-left: 1%;
+    width: 98%;
     text-align: justify;
     font-family: Verdana;
-    font-size: 100%;
+    font-size: 125%;
     position: relative;
-    border: rgb(22, 89, 177) solid 3px;
+    border: rgb(22, 89, 177) solid 3px;;
     overflow: hidden;
     border-left: none;
     border-right: none;
@@ -395,30 +397,33 @@ td{
 .modal-dialog{
    position: absolute;
    top: 20%;
-   right: 100px;
+   right: 100%;
    bottom: 0;
    left: 0;
    z-index: 10040;
    overflow: auto;
    overflow-y: auto;
-   min-width: 60%;
+   min-width: 55%;
 }
 .conteudo-modal{
-    top: 0%;
+    float: left;
+    bottom: 5%;
     width: 45%;
-    left: 55%;
-    position: absolute;
-    border: black 2px solid;
+    left: 6.5%;
+    position: relative;
     text-align: justify;
+    height: 90%;
 }
 
-.divimgAnimal{
-    position: absolute;
+h4{
+    border-bottom: 2px solid black;
 }
 .imgAnimal{
     float: left;
-    width: 600px;
-    height: 385px;
+    left: 2.5%;
+    position: relative;
+    width: 45%;
+    height: 45%;
 }
 .botaoAnimal{
     position: relative;

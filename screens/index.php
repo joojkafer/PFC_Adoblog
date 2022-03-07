@@ -16,7 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../script/showmodal.js"></script>
 </head> 
 
 <body>
@@ -116,7 +115,6 @@
                             <h5>Idade:</h5>
                             <h5>Coloração:</h5>
                             <h5>Descrição:</h5>
-                            <br>
                             <h4>Informações de Contato e Endereço:</h4>
                             <h5>Email:</h5>
                             <h5>Telefone:</h5>
@@ -127,7 +125,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                     </div>
 
                     </div>
@@ -159,7 +157,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                     </div>
 
                     </div>
@@ -397,19 +395,13 @@
            </tr>
            </table>
         </div>
-
-        <div class="containerAdote">
-            <button type="button" class="botaoAdote">Adote um Animal</button>
-        </div>
-
+        
         <div class="containerMSG">
            <h1 class="tituloContainer"> <b> Sobre o Blog </b> </h1>
             <div class="textoContainer">
-                <p style="font-size: 15px;"> 
-                    ㅤ O Adoblog foi criado a partir da ideia de não ter um local próprio, único e pensando
+                    O Adoblog foi criado a partir da ideia de não ter um local próprio, único e pensando
                     para a adoção e doação de animais. Foi daí que decidimos criar o Adoblog, tendo em mente
                     a produção de algo funcional, rápido e seguro.
-                </p>
             </div>
         </div>
 
