@@ -19,26 +19,33 @@
     
     //verificação de login verificando se é adm ou ong, e se existe executa a criação da SESSION
     if($rowong != 1){
+        
         $queryadm = "SELECT * FROM tb_admin WHERE adm_email='$email' AND adm_senha='$senha'";
         $resultadm = mysqli_query($mysqli, $queryadm);
         $rowadm = mysqli_num_rows($resultadm);
 
         if($rowadm == 1){
             $rowadm = $resultadm->fetch_array();
-            $nome = $rowadm['adm_nome'];
 
-            $_SESSION['login'] = $nome;
+            $_SESSION['user_id'] = $rowadm['adm_id'];
+            $_SESSION['login']   = $rowadm['adm_nome'];
+            $_SESSION['tipo']    = "ADMIN";
+
             header('Location:../screens/index.php');
             exit();
         }else{
             header('Location:../screens/loginerror.php');
         }
-    }else{
+    
+    } else {
+
         if($rowong == 1){
             $rowong = $resultong->fetch_array();
             $nome = $rowong['ong_nome'];
 
             $_SESSION['login'] = $nome;
+            $_SESSION['tipo']  = "ONG";
+
             header('Location:../screens/index.php');
             exit();
         }else{
@@ -54,5 +61,3 @@
     }else{
         header('Location:../screens/loginerror.php');
     }*/
-    
-?>

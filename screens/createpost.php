@@ -16,6 +16,17 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+    function buttonNext(){
+        document.getElementById("formContent").style.display = "none";
+        document.getElementById("formContentContato").style.display = "block";
+    }
+    function buttonBack(){
+        document.getElementById("formContent").style.display = "block";
+        document.getElementById("formContentContato").style.display = "none";
+    }
+    </script>
 </head>
 
 <body>
@@ -50,14 +61,66 @@
     </nav>
 
     <div class="wrapper fadeInDown">
-        <div id="formContent">
+        <div id="formContent" style="min-width: 40%; min-height: 575px;" class="fadeIn first">
             <div>
-                <b style="margin:20px;"> NOVA PUBLICAÇÃO: </b>
+                <br>
+                <b style="margin:20px;" class="fadeIn second"> PREENCHA COM OS DADOS DO ANIMAL: </b>
             </div>
             <form>
-                <input type="text" id="login" class="fadeIn second" name="titulo" placeholder="Título">
-                <input type="text" id="password" class="fadeIn third" name="descricao" placeholder="Descrição">
-                <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" value="CRIAR PUBLICAÇÃO">
+                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome" style="width: 60%">
+                <input type="text" id="raca" class="fadeIn second" name="raca" placeholder="Raça" style="width: 60%">
+                <input type="text" id="cor" class="fadeIn third" name="cor" placeholder="Coloração" style="width: 60%">
+                <input type="text" id="idade" class="fadeIn third" name="idade" placeholder="Idade" style="width: 60%">
+                <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Descrição" style="height: 10em; width: 80%;">
+
+                <button type="button" style=" background-color: #A5EB78;
+                                                border: none;
+                                                color: white;
+                                                padding: 15px 80px;
+                                                text-align: center;
+                                                text-decoration: none;
+                                                display: inline-block;
+                                                text-transform: uppercase;
+                                                font-size: 13px;
+                                                -webkit-box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                -webkit-border-radius: 5px 5px 5px 5px;
+                                                border-radius: 5px 5px 5px 5px;
+                                                margin: 5px 20px 40px 20px;" class="fadeIn third"
+                onclick="buttonNext()">
+                PRÓXIMO
+                </button>
+            </form>
+        </div>
+
+        <div id="formContentContato" style="min-width: 40%; min-height: 400px; display: none;" class="fadeIn first">
+            <div>
+                <br>
+                <b style="margin:20px;" class="fadeIn second"> PREENCHA COM OS DADOS DE ENDEREÇO E CONTATO: </b>
+            </div>
+            <form>
+                <input type="text" id="estado" class="fadeIn second" name="estado" placeholder="Estado" style="width: 60%">
+                <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade" style="width: 60%">
+                <input type="text" id="telefone" class="fadeIn third" name="telefone" placeholder="Telefone" style="width: 60%">
+                <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email" style="width: 60%"><br>
+                <button type="button" style=" background-color: #A5EB78;
+                                                border: none;
+                                                color: white;
+                                                padding: 15px 80px;
+                                                text-align: center;
+                                                text-decoration: none;
+                                                display: inline-block;
+                                                text-transform: uppercase;
+                                                font-size: 13px;
+                                                -webkit-box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                -webkit-border-radius: 5px 5px 5px 5px;
+                                                border-radius: 5px 5px 5px 5px;
+                                                margin: 5px 20px 40px 20px;" class="fadeIn third"
+                onclick="buttonBack()">
+                VOLTAR
+                </button>
+                <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" value="CRIAR POSTAGEM">
             </form>
         </div>
     </div>

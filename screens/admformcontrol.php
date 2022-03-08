@@ -1,3 +1,7 @@
+<?php
+    require_once '../script/LoginFilter.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

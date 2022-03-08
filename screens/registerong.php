@@ -40,7 +40,7 @@
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="login.php"> Entrar </a>
+                    <a class="nav-link active" href="login.php" style='padding-right: 18px;'> Entrar </a>
                 </li>
             </ul>
         </div>

@@ -1,5 +1,6 @@
 <?php 
     session_start(); 
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 </head> 
 
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78;">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
@@ -397,16 +398,16 @@
         </div>
         <div class="containerSobre">
             <?php require_once '../script/ongselectorname.php' ?>
-            <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 200px; width: 220px; margin: 5%;">
+            <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%; overflow: hidden">
 
-            <h1 class="tituloContainerONG"> <b> ONG <?php echo $row['ong_nome']; ?> </b> <br><br>
+            <h1 class="tituloContainerONG" style="overflow: hidden"> <b> ONG <?php echo $row['ong_nome']; ?> </b> <br><br>
             Estado <br><br>
             Cidade</h1>
             <br>
             
             
             
-            <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none;">
+            <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">
                 
                  <div id="scroll-text" >
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 

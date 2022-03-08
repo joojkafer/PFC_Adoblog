@@ -1,9 +1,5 @@
 <?php
     session_start();
-    if(!$_SESSION){
-        header('Location: index.php');
-        exit();
-    }
 ?>
 
 <!DOCTYPE html>
@@ -52,20 +48,42 @@
         </div>
     </nav>
 
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <div class="fadeIn first">
-                <img class="loguserimg" src="../images/icon_alert.png" id="icon" alt="User Icon" />
-            </div>
-            <div>
-                <b class="fadeIn second"> VOCÊ ESTÁ EM UMA SESSÃO! <BR>
-                PARA ACESSAR ESSA PÁGINA SAIA DE SUA SESSÃO. </b>
-            </div>
-            <form action="index.php">
-                <input type="submit" style="background-color:#A5EB78; margin-top: 20px;"class="fadeIn third" value="OK">
-            </form>
-        </div>
-    </div>
+    <?php
+        if($_SESSION){
+            echo "
+                <div class='wrapper fadeInDown'>
+                    <div id='formContent'>
+                        <div class='fadeIn first'>
+                            <img class='loguserimg' src='../images/icon_alert.png' id='icon' alt='User Icon'/>
+                        </div>
+                        <div>
+                            <b class='fadeIn second'> VOCÊ ESTÁ EM UMA SESSÃO! <BR>
+                            PARA ACESSAR ESSA PÁGINA SAIA DE SUA SESSÃO. </b>
+                        </div>
+                        <form action='index.php'>
+                            <input type='submit' style='background-color:#A5EB78; margin-top: 20px;' class='fadeIn third' value='OK'>
+                        </form>
+                    </div>
+                </div>
+            ";
+        }else{
+            echo "
+                <div class='wrapper fadeInDown'>
+                    <div id='formContent'>
+                        <div class='fadeIn first'>
+                            <img class='loguserimg' src='../images/icon_alert.png' id='icon' alt='User Icon'/>
+                        </div>
+                        <div>
+                            <b class='fadeIn second'> VOCÊ PRECISA ESTAR EM UMA SESSÃO. </b>
+                        </div>
+                        <form action='index.php'>
+                            <input type='submit' style='background-color:#A5EB78; margin-top: 20px;' class='fadeIn third' value='OK'>
+                        </form>
+                    </div>
+                </div>
+            ";
+        }
+    ?>
 
     <div class="fadeIn footer">
         <footer class="container-fluid py-3" style="background: #A5EB78;">
