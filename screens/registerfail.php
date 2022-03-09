@@ -1,7 +1,7 @@
 <?php 
     session_start(); 
     if($_SESSION){
-        header('Location: sairsessaowarning.php');
+        header('Location: sessionwarning.php');
         exit();
     }
 ?>

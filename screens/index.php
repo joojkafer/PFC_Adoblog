@@ -36,13 +36,13 @@
                     if(!$_SESSION){
                         echo "
                             <li class='nav-item' style='padding-left:18px;'>
-                                <a class='nav-link active' href='doarform.php'> Doar </a>
+                                <a class='nav-link active' href='doarform.php'> Doe </a>
                             </li>
                         ";
                     }else{
                         echo "
                             <li class='nav-item' style='padding-left:18px;'>
-                                <a class='nav-link active' href='createpost.php'> Doar </a>
+                                <a class='nav-link active' href='createpost.php'> Doe </a>
                             </li>
                         ";
                     }

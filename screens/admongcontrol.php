@@ -1,5 +1,5 @@
 <?php
-    require_once '../script/LoginFilter.php';
+    require_once '../script/loginadmfilter.php';
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <?php
-    require_once '../script/LoginFilter.php';
+    require_once '../script/loginadmfilter.php';
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +39,6 @@
             </ul>
         </div>
     </nav>
-    
-    
     
     <div>
         <footer class="container-fluid py-3" style="background: #A5EB78;">
