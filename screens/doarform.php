@@ -1,6 +1,50 @@
 <?php
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     require_once '../script/verifylogdoacao.php';
+
+
+    //função de adição de dados do "formulário para criação de post" no banco
+    require_once '../script/connection.php';
+
+
+    if(isset($_POST['sendform'])){
+
+        $today = date("m.d.y hh:mm:ss:sss"); // e.g. "03.10.01"
+        $fileHashNameBased = substr(hash('md5', $today), 0, 15) . basename($_FILES["foto_animal"]["name"]);
+
+        $target_dir  = __DIR__ . "/../uploads/";
+        $target_file = $target_dir . $fileHashNameBased;
+        
+        $uploadOk = 1;
+        
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        move_uploaded_file($_FILES["foto_animal"]["tmp_name"], $target_file);
+
+        $nome      = $_POST['nome'];
+        $raca      = $_POST['raca'];
+        $cor       = $_POST['cor'];
+        $idade     = $_POST['idade'];
+        $descricao = $_POST['descricao'];
+        $estado    = $_POST['estado'];
+        $cidade    = $_POST['cidade'];
+        $telefone  = $_POST['telefone'];
+        $email     = $_POST['email'];
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
+
+        $mysqli->query("INSERT INTO `tb_animalform`(`anm_nome`, `anm_raca`, `anm_cor`, `anm_idade`, `anm_descricao`, `anm_estado`, `anm_cidade`, `anm_telefone`, `anm_email`, `anm_imagem`) 
+        VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email', '$fileHashNameBased')");
+
+        header('Location:doarformsuccess.php');
+    }
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -51,28 +95,8 @@
             <div>
                 <b> PREENCHA OS CAMPOS ABAIXO COM SEUS <br> RESPECTIVOS DADOS E DO ANIMAL: </b>
             </div>
-            <form method="POST">
-                <?php 
-                    //função de adição de dados do "formulário para criação de post" no banco
-                    require_once '../script/connection.php';
-                
-                    if(isset($_POST['sendform'])){
-                        $nome = $_POST['nome'];
-                        $raca = $_POST['raca'];
-                        $cor = $_POST['cor'];
-                        $idade = $_POST['idade'];
-                        $descricao = $_POST['descricao'];
-                        $estado = $_POST['estado'];
-                        $cidade = $_POST['cidade'];
-                        $telefone = $_POST['telefone'];
-                        $email = $_POST['email'];
+            <form method="post" enctype="multipart/form-data">
 
-                        $mysqli->query("INSERT INTO `tb_animalform`(`anm_nome`, `anm_raca`, `anm_cor`, `anm_idade`, `anm_descricao`, `anm_estado`, `anm_cidade`, `anm_telefone`, `anm_email`) 
-                        VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email')");
-
-                        header('Location:doarformsuccess.php');
-                    }
-                ?>
 
                 <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome da animal" required>
                 <input type="text" id="raca" class="fadeIn third" name="raca" placeholder="Raça" required>
@@ -82,7 +106,12 @@
                 <input type="text" id="estado" class="fadeIn seventh" name="estado" placeholder="Estado" required>
                 <input type="text" id="cidade" class="fadeIn eigth" name="cidade" placeholder="Cidade" required>
                 <input type="text" id="telefone" class="fadeIn nineth" name="telefone" placeholder="Telefone" required>
-                <input type="text" id="email" class="fadeIn ten" name="email" placeholder="Email" required>
+                <input type="mail" id="email" class="fadeIn ten" name="email" placeholder="Email" required>
+                
+                <br />
+
+                Select image to upload:
+                <input type="file" name="foto_animal" id="">
 
                 <input type="submit" style="background-color:#A5EB78;"class="fadeIn eleven" name="sendform" value="ENVIAR FORMULÁRIO">
             </form>

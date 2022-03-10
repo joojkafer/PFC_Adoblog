@@ -63,7 +63,7 @@
           require_once '../script/ongctrl.php'; ?>
     
     <?php
-        $mysqli = new mysqli('localhost', 'root', '', 'adoblog') or die(mysqli_error($mysqli));
+        //$mysqli = new mysqli('localhost', 'root', '', 'adoblog') or die(mysqli_error($mysqli));
         $result = $mysqli->query("SELECT * FROM tb_ong") or die($mysqli->error);
 
         //pre_r($result);

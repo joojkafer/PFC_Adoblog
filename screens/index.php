@@ -408,16 +408,15 @@
 
             <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%; overflow: hidden">
 
-            <h1 class="tituloContainerONG" style="overflow: hidden"> <b> ONG <?php echo $row['ong_nome']; ?> </b> <br><br>
+            <h1 class="tituloContainerONG" style="overflow: hidden"> <b> <a class='nav-link active' href=""> ONG <?php echo $row['ong_nome']; ?> </a> </b> <br><br>
             <?php echo $row['ong_estado'];?> <br><br>
             <?php echo $row['ong_cidade'];?> </h1>
             
             <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">
                  <div id="scroll-text" >
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-                   eiusmodLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-                   eiusmodLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-                   eiusmod
+                    <?php
+                        echo $row['ong_descricao'];
+                    ?>
                  </div>
             </div>
         </div>
