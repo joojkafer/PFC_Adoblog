@@ -20,7 +20,7 @@
         $nmrrand = rand(1, $id);
     }
 
-    $result = $mysqli->query("SELECT ong_nome FROM tb_ong WHERE ong_id=$nmrrand") or die($mysqli->error());
+    $result = $mysqli->query("SELECT * FROM tb_ong WHERE ong_id=$nmrrand") or die($mysqli->error());
 
     $row = $result->fetch_array();
     $nome = $row['ong_nome'];

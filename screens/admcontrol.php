@@ -36,6 +36,17 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="ongpage.php"> ONG's </a>
                 </li>
+                <li class="nav-item">
+                    <a class= "nav-link active" href="../script/logout.php"> Logout </a>
+                </li>
+                <li class="nav-item" style="padding-right: 18px;">
+                    <a class="nav-link active" href="">
+                        <?php
+                            $nome = $_SESSION['login'];
+                            print_r($nome);
+                        ?>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

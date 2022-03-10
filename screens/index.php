@@ -1,6 +1,5 @@
 <?php 
     session_start(); 
-
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +60,13 @@
                             </li>
                         ";
                     }else{ 
+                        if($_SESSION['tipo'] == "ADMIN"){
+                            echo "
+                                <li class='nav-item'>
+                                    <a class='nav-link active' href='admcontrol.php'> Dashboard </a>
+                                </li>
+                            ";
+                        }
                         echo "
                             <li class='nav-item'>
                                 <a class='nav-link active' href='../script/logout.php'> Logout </a>
@@ -392,29 +398,26 @@
                 </div>
                 </div>
             </td>
-
            </tr>
            </table>
         </div>
         <div class="containerSobre">
-            <?php require_once '../script/ongselectorname.php' ?>
+            <?php 
+                require_once '../script/ongselectorname.php';
+            ?>
+
             <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%; overflow: hidden">
 
             <h1 class="tituloContainerONG" style="overflow: hidden"> <b> ONG <?php echo $row['ong_nome']; ?> </b> <br><br>
-            Estado <br><br>
-            Cidade</h1>
-            <br>
-            
-            
+            <?php echo $row['ong_estado'];?> <br><br>
+            <?php echo $row['ong_cidade'];?> </h1>
             
             <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">
-                
                  <div id="scroll-text" >
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
                    eiusmodLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
                    eiusmodLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
                    eiusmod
-
                  </div>
             </div>
         </div>

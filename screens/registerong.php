@@ -97,7 +97,7 @@
                 <input type="text" id="cnpj" class="fadeIn fifth" name="cnpj" placeholder="CNPJ" required>
                 <input type="text" id="estado" class="fadeIn sixth" name="estado" placeholder="Estado da ONG" required>
                 <input type="text" id="cidade" class="fadeIn seventh" name="cidade" placeholder="Cidade da ONG" required>
-                <input type="text" id="senha" class="fadeIn eigth" name="senha" placeholder="Senha" required>
+                <input type="password" id="senha" class="fadeIn eigth" name="senha" placeholder="Senha" required>
                 <input type="submit" style="background-color:#A5EB78;"class="fadeIn nineth" name="register" value="Cadastrar">
             </form>
         </div>

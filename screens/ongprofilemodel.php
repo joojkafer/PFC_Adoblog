@@ -45,16 +45,28 @@
                             </li>
                         ";
                     }else{ 
+                        if($_SESSION['tipo'] == "ADMIN"){
+                            echo "
+                                <li class='nav-item'>
+                                    <a class='nav-link active' href='admcontrol.php'> Dashboard </a>
+                                </li>
+                            ";
+                        }
+                        
                         echo "
                             <li>
                                 <a class='nav-link active' href='../script/logout.php'> Logout </a>
                             </li>
                         ";
 
-                        echo "<li class='nav-item'> <a class='nav-link active' href='ongpage.php' style='padding-right:18px;'>";
-                            $nome = $_SESSION['login'];
-                            print_r($nome); 
-                        echo "</a> </li>";
+                        echo "
+                            <li class='nav-item'> 
+                                <a class='nav-link active' href='ongpage.php' style='padding-right:18px;'>";
+                                    $nome = $_SESSION['login'];
+                                    print_r($nome); 
+                        echo "  </a> 
+                            </li>
+                        ";
                     }
                 ?>
             </ul>

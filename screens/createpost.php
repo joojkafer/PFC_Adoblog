@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!$_SESSION){
-        header('Location: sessionwarning.php');
+        header('Location: index.php');
         exit();
     }
 ?>
@@ -66,12 +66,34 @@
                 <br>
                 <b style="margin:20px;" class="fadeIn second"> PREENCHA COM OS DADOS DO ANIMAL: </b>
             </div>
-            <form>
-                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome" style="width: 60%">
-                <input type="text" id="raca" class="fadeIn second" name="raca" placeholder="Raça" style="width: 60%">
-                <input type="text" id="cor" class="fadeIn third" name="cor" placeholder="Coloração" style="width: 60%">
-                <input type="text" id="idade" class="fadeIn third" name="idade" placeholder="Idade" style="width: 60%">
-                <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Descrição" style="height: 10em; width: 80%;">
+
+            <?php
+                require_once '../script/connection.php';
+
+                if(isset($_POST['create'])){
+                    $nome = $_POST['nome'];
+                    $raca = $_POST['raca'];
+                    $cor = $_POST['cor'];
+                    $idade = $_POST['idade'];
+                    $descricao = $_POST['descricao'];
+                    $estado = $_POST['estado'];
+                    $cidade = $_POST['cidade'];
+                    $telefone = $_POST['telefone'];
+                    $email = $_POST['email'];
+
+                    $mysqli->query("INSERT INTO `tb_publicacao`(`pub_nome`, `pub_raca`, `pub_cor`, `pub_idade`, `pub_descricao`, `pub_estado`, `pub_cidade`, `pub_telefone`, `pub_email`) 
+                    VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email')");
+
+                    header('Location: index.php');
+                }
+            ?>
+
+            <form method="POST">
+                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome" style="width: 60%" required>
+                <input type="text" id="raca" class="fadeIn second" name="raca" placeholder="Raça" style="width: 60%" required>
+                <input type="text" id="cor" class="fadeIn third" name="cor" placeholder="Coloração" style="width: 60%" required>
+                <input type="text" id="idade" class="fadeIn third" name="idade" placeholder="Idade" style="width: 60%" required>
+                <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Descrição" style="height: 10em; width: 80%;" required>
 
                 <button type="button" style=" background-color: #A5EB78;
                                                 border: none;
@@ -90,19 +112,19 @@
                 onclick="buttonNext()">
                 PRÓXIMO
                 </button>
-            </form>
-        </div>
+            
+    </div>
 
         <div id="formContentContato" style="min-width: 40%; min-height: 400px; display: none;" class="fadeIn first">
             <div>
                 <br>
                 <b style="margin:20px;" class="fadeIn second"> PREENCHA COM OS DADOS DE ENDEREÇO E CONTATO: </b>
             </div>
-            <form>
-                <input type="text" id="estado" class="fadeIn second" name="estado" placeholder="Estado" style="width: 60%">
-                <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade" style="width: 60%">
-                <input type="text" id="telefone" class="fadeIn third" name="telefone" placeholder="Telefone" style="width: 60%">
-                <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email" style="width: 60%"><br>
+            
+                <input type="text" id="estado" class="fadeIn second" name="estado" placeholder="Estado" style="width: 60%" required>
+                <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade" style="width: 60%" required>
+                <input type="text" id="telefone" class="fadeIn third" name="telefone" placeholder="Telefone" style="width: 60%" required>
+                <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email" style="width: 60%" required><br>
                 <button type="button" style=" background-color: #A5EB78;
                                                 border: none;
                                                 color: white;
@@ -120,7 +142,7 @@
                 onclick="buttonBack()">
                 VOLTAR
                 </button>
-                <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" value="CRIAR POSTAGEM">
+                <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" name="create" value="CRIAR POSTAGEM">
             </form>
         </div>
     </div>
