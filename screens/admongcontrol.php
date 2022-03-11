@@ -80,6 +80,7 @@
                     <th> Estado </th>
                     <th> Cidade </th>
                     <th> Senha </th>
+                    <th> Imagem </th>
                     <th colspan="2"> Funções </th>
                 </tr>
             </thead>
@@ -94,6 +95,7 @@
                 <td> <?php echo $row['ong_estado']; ?> </td>
                 <td> <?php echo $row['ong_cidade']; ?> </td>
                 <td> <?php echo $row['ong_senha']; ?> </td>
+                <td> <?php echo $row['ong_imagem']; ?> </td>
                 <td>
                     <a href="admongcontrol.php?edit=<?php echo $row['ong_id']; ?>"
                         class="btn btn-info mx-2"> Editar 

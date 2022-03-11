@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `tb_ong` (
     `ong_estado` VARCHAR(20) NOT NULL,
     `ong_cidade` VARCHAR(40) NOT NULL,
     `ong_senha` VARCHAR(20) NOT NULL,
+    `ong_imagem` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`ong_id`)
 );
 
@@ -30,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `tb_animalform` (
     `anm_cidade` VARCHAR(40) NOT NULL,
     `anm_telefone` VARCHAR(16) NOT NULL,
     `anm_email` VARCHAR(60) NOT NULL,
+    `anm_imagem` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`anm_id`)
 );
 

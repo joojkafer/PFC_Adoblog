@@ -100,37 +100,34 @@
     </nav>
 
     <div class="containerPrincipal fadeIn first">
-
         <div class="containerPaginas fadeIn first">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th style="border-right: 1px solid blue;"> Imagem </th>
-                    <th> Nome </th>
-                    <th> Estado </th>
-                    <th> Cidade </th>
-                    <th> Descrição </th>
-                </tr>
-            </thead>
-            
-            <?php foreach ($ongsList as $ong) : ?>
-
-                <tr class="tr2" onclick="window.location='index.php'">
+            <table class="table">
+                <thead>
+                    <tr class="tr2">
+                        <th style="border-right: 1px solid black; border-bottom: 1px solid black"> Imagem </th>
+                        <th style="border-bottom: 1px solid black"> Nome </th>
+                        <th style="border-bottom: 1px solid black"> Estado </th>
+                        <th style="border-bottom: 1px solid black"> Cidade </th>
+                        <th style="border-left: 1px solid black; border-bottom: 1px solid black"> Descrição </th>
+                    </tr>
+                </thead>
                 
-                    <td class="tdimg">img</td>
-                    <td style="width: 10%; "> <?php echo $ong['ong_nome']; ?> </td>
-                    <td style="width: 10%; "> <?php echo $ong['ong_estado']; ?> </td>
-                    <td style="width: 10%; "> <?php echo $ong['ong_cidade']; ?> </td>
-                    <td style="width: 30%;  border-left: 1px solid blue;"> <?php echo $ong['ong_descricao']; ?> </td>
-                </tr>
-            
-            <?php endforeach; ?>
-              
-        </table>
+                <?php foreach ($ongsList as $ong) : ?>
+
+                    <tr class="tr2" onclick="window.location='index.php'">
+                    
+                        <td class="tdimg">img</td>
+                        <td style="width: 10%; "> <?php echo $ong['ong_nome']; ?> </td>
+                        <td style="width: 10%; "> <?php echo $ong['ong_estado']; ?> </td>
+                        <td style="width: 10%; "> <?php echo $ong['ong_cidade']; ?> </td>
+                        <td style="width: 30%;  border-left: 1px solid black;"> <?php echo $ong['ong_descricao']; ?> </td>
+                    </tr>
+                
+                <?php endforeach; ?>
+                
+            </table>
         </div>
-
         
-
     </div>
     <div class="fadeIn footer">
         <footer class="container-fluid py-3" style="background: #A5EB78; height: 125%;">

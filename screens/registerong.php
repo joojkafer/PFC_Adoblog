@@ -4,6 +4,61 @@
         header('Location: sessionwarning.php');
         exit();
     }
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    //função de adição de dados do "formulário para criação de post" no banco
+    require_once '../script/connection.php';
+
+
+    if(isset($_POST['register'])){
+
+        $today = date("m.d.y hh:mm:ss:sss"); // e.g. "03.10.01"
+        $fileHashNameBased = substr(hash('md5', $today), 0, 15) . basename($_FILES["foto_ong"]["name"]);
+
+        $target_dir  = __DIR__ . "/../uploads/img_ong/";
+        $target_file = $target_dir . $fileHashNameBased;
+        
+        $uploadOk = 1;
+        
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        move_uploaded_file($_FILES["foto_ong"]["tmp_name"], $target_file);
+
+        $nome        = $_POST['nome'];
+        $razaosocial = $_POST['razaosocial'];
+        $email       = $_POST['email'];
+        $cnpj        = $_POST['cnpj'];
+        $estado      = $_POST['estado'];
+        $cidade      = $_POST['cidade'];
+        $senha       = $_POST['senha'];
+        $descricao   = $_POST['descricao'];
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
+
+        $resultemail = $mysqli->query("SELECT * FROM tb_ong WHERE ong_email='$email'") or die($mysqli->error());
+        $resultcnpj = $mysqli->query("SELECT * FROM tb_ong WHERE ong_cnpj='$cnpj'") or die($mysqli->error());
+        
+        //verificação de dados como 'email' e 'cnpj', afim de verificar se
+        //já são dados existentes no banco e impedir de cadastrar iguais
+        if(mysqli_num_rows($resultemail) == 1 || mysqli_num_rows($resultcnpj) == 1){
+            //header('Location:registerfail.php');
+            ?>
+
+            <script> 
+                alert('Email ou CNPJ já cadastrados, tente novamente com outros dados.');
+            </script>
+
+            <?php
+        }else{
+            $mysqli->query("INSERT INTO `tb_ong`(`ong_nome`, `ong_razaosocial`, `ong_email`, `ong_cnpj`, `ong_estado`, `ong_cidade`, `ong_senha`, `ong_descricao`, `ong_imagem`) 
+            VALUES ('$nome', '$razaosocial', '$email', '$cnpj', '$estado', '$cidade', '$senha','$descricao','$fileHashNameBased')");
+
+            header('Location:registersuccess.php');
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +71,18 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+    function buttonNext(){
+        document.getElementById("formContent").style.display = "none";
+        document.getElementById("aux").style.display = "block";
+    }
+    function buttonBack(){
+        document.getElementById("formContent").style.display = "block";
+        document.getElementById("aux").style.display = "none";
+    }
+    </script>
+
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light py-3" style="background-color: #A5EB78;">
@@ -47,60 +114,73 @@
     </nav>
 
     <div class="wrapper fadeInDown">
-        <div id="formContent">
+        <div id="formContent" class="fadeIn first" style="min-width: 500px;">
             <div class="fadeIn first">
                 <img class="loguserimg" src="../images/user_icon_register.png" id="icon" alt="User Icon" />
             </div>
+            
             <div>
                 <b> INSIRA OS DADOS DA SUA ONG: </b>
             </div>
-            <form method="POST">
-            <?php 
-            //função de inserção de dados diretamente no banco
-                require_once '../script/connection.php';
-                
-                if(isset($_POST['register'])){
-                    $nome = $_POST['nome'];
-                    $razaosocial = $_POST['razaosocial'];
-                    $email = $_POST['email'];
-                    $cnpj = $_POST['cnpj'];
-                    $estado = $_POST['estado'];
-                    $cidade = $_POST['cidade'];
-                    $senha = $_POST['senha'];
-
-                    $resultemail = $mysqli->query("SELECT * FROM tb_ong WHERE ong_email='$email'") or die($mysqli->error());
-                    $resultcnpj = $mysqli->query("SELECT * FROM tb_ong WHERE ong_cnpj='$cnpj'") or die($mysqli->error());
-                    
-                    //verificação de dados como 'email' e 'cnpj', afim de verificar se
-                    //já são dados existentes no banco e impedir de cadastrar iguais
-                    if(mysqli_num_rows($resultemail) == 1 || mysqli_num_rows($resultcnpj) == 1){
-                        //header('Location:registerfail.php');
-                        ?>
-
-                        <script> 
-                            alert('Email ou CNPJ já cadastrados, tente novamente com outros dados.');
-                        </script>
-
-                        <?php
-                    }else{
-                        $mysqli->query("INSERT INTO `tb_ong`(`ong_nome`, `ong_razaosocial`, `ong_email`, `ong_cnpj`, `ong_estado`, `ong_cidade`, `ong_senha`) 
-                        VALUES ('$nome', '$razaosocial', '$email', '$cnpj', '$estado', '$cidade', '$senha')");
-
-                        header('Location:registersuccess.php');
-                    }
-                }
-            ?>
-                
+            <form method="POST" enctype="multipart/form-data">
                 <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome da ONG" required>
                 <input type="text" id="razaosocial" class="fadeIn third" name="razaosocial" placeholder="Razão Social" required>
                 <input type="text" id="email" class="fadeIn fourth" name="email" placeholder="Email" required>
                 <input type="text" id="cnpj" class="fadeIn fifth" name="cnpj" placeholder="CNPJ" required>
-                <input type="text" id="estado" class="fadeIn sixth" name="estado" placeholder="Estado da ONG" required>
-                <input type="text" id="cidade" class="fadeIn seventh" name="cidade" placeholder="Cidade da ONG" required>
-                <input type="password" id="senha" class="fadeIn eigth" name="senha" placeholder="Senha" required>
-                <input type="submit" style="background-color:#A5EB78;"class="fadeIn nineth" name="register" value="Cadastrar">
-            </form>
+                <input type="password" id="senha" class="fadeIn sixth" name="senha" placeholder="Senha" required>
+                <button type="button" style=" background-color: #A5EB78;
+                                                border: none;
+                                                color: white;
+                                                padding: 15px 80px;
+                                                text-align: center;
+                                                text-decoration: none;
+                                                display: inline-block;
+                                                text-transform: uppercase;
+                                                font-size: 13px;
+                                                -webkit-box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                -webkit-border-radius: 5px 5px 5px 5px;
+                                                border-radius: 5px 5px 5px 5px;
+                                                margin: 5px 20px 40px 20px;" class="fadeIn seventh"
+                onclick="buttonNext()">
+                PRÓXIMO
+            </button>
         </div>
+        <div id="aux" style="display: none;">
+            <div id="formContent" class="fadeIn first" style="min-width: 500px;">
+                        <div class="fadeIn first">
+                            <img class="loguserimg" src="../images/user_icon_register.png" id="icon" alt="User Icon" />
+                        </div>
+                        <input type="text" id="estado" class="fadeIn first" name="estado" placeholder="Estado da ONG" required>
+                        <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade da ONG" required>
+                        <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Escreva Sobre Sua ONG" style="height: 10em; width: 85%;"><BR>
+                        
+                        <b class="fadeIn fourth">SELECIONE UMA IMAGEM PARA A ONG: </b>
+                        <input type="file" name="foto_ong" class="fadeIn fifth">
+                        <button type="button" style=" background-color: #A5EB78;
+                                                    border: none;
+                                                    color: white;
+                                                    padding: 15px 80px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    text-transform: uppercase;
+                                                    font-size: 13px;
+                                                    -webkit-box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                    box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+                                                    -webkit-border-radius: 5px 5px 5px 5px;
+                                                    border-radius: 5px 5px 5px 5px;
+                                                    margin: 5px 20px 40px 20px;
+                                                    right: 25%;
+                                                    position: relative;" class="fadeIn sixth"
+                        onclick="buttonBack()">
+                        VOLTAR
+                        </button>
+                        
+                        <input type="submit" style="background-color:#A5EB78; left: 45%; top: 87.5%; position: absolute;"class="fadeIn sixth" name="register" value="Cadastrar">
+                </form>
+        </div>
+    </div>
     </div>
 
     <div class="fadeIn footer" class="footerMargin">

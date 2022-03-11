@@ -82,6 +82,7 @@
                     <th> Cidade </th>
                     <th> Telefone </th>
                     <th> Email </th>
+                    <th> Imagem
                     <th colspan="2"> Funções </th>
                 </tr>
             </thead>
@@ -98,9 +99,10 @@
                 <td> <?php echo $row['anm_cidade']; ?> </td>
                 <td> <?php echo $row['anm_telefone']; ?> </td>
                 <td> <?php echo $row['anm_cidade']; ?> </td>
+                <td> <?php echo $row['anm_imagem']?></td>
                 <td>
                     <a href="createpost.php" class="btn btn-info mx-2"> Criar Post </a> 
-                    <a href="admformcontrol.php?delete=<?php echo $row['anm_id']; ?>" class="btn btn-info mx-2"> Concluído </a>  
+                    <a href="admformcontrol.php?delete=<?php echo $row['anm_id']; ?>" class="btn btn-info mx-2" style="width: 103px"> Concluir </a>  
                 </td>
             </tr>
         <?php endwhile; ?>

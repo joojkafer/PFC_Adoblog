@@ -285,13 +285,12 @@ h2{
     margin: 0.5%;
 }
 .tituloContainerONG{
-    
     text-align: justify;
     font-family: sans-serif;
-    font-size: 200%;
+    font-size: 150%;
     float: right;
     position: relative;
-    right: 30%;
+    right: 35%;
     top: 10%;
 }
 

@@ -16,7 +16,7 @@
         $today = date("m.d.y hh:mm:ss:sss"); // e.g. "03.10.01"
         $fileHashNameBased = substr(hash('md5', $today), 0, 15) . basename($_FILES["foto_animal"]["name"]);
 
-        $target_dir  = __DIR__ . "/../uploads/";
+        $target_dir  = __DIR__ . "/../uploads/img_animal/";
         $target_file = $target_dir . $fileHashNameBased;
         
         $uploadOk = 1;
@@ -106,12 +106,12 @@
                 <input type="text" id="estado" class="fadeIn seventh" name="estado" placeholder="Estado" required>
                 <input type="text" id="cidade" class="fadeIn eigth" name="cidade" placeholder="Cidade" required>
                 <input type="text" id="telefone" class="fadeIn nineth" name="telefone" placeholder="Telefone" required>
-                <input type="mail" id="email" class="fadeIn ten" name="email" placeholder="Email" required>
+                <input type="text" id="email" class="fadeIn ten" name="email" placeholder="Email" required>
                 
                 <br />
 
-                Select image to upload:
-                <input type="file" name="foto_animal" id="">
+                <b class="fadeIn ten">SELECIONE UMA IMAGEM PARA O ANIMAL: </b>
+                <input type="file" name="foto_animal" class="fadeIn ten">
 
                 <input type="submit" style="background-color:#A5EB78;"class="fadeIn eleven" name="sendform" value="ENVIAR FORMULÁRIO">
             </form>

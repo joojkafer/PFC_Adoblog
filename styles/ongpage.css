@@ -238,20 +238,24 @@ h2{
 
 .containerPaginas{
     position: relative;
-    border: 3px solid blue;
+    border: 3px solid black;
     width: 80%;
-    height: 100%;
+    height: 98%;
+    top: 1%;
+    bottom: 1%;
     left: 10%;
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
-
+.tr2{
+    border-bottom: black solid 1px;
+}
 .tr2:hover{
-    background-color: grey;
+    background-color: lightblue;
     transition: 0.5s;
 }
 
 .tdimg{
-    border-right: 1px solid blue;
+    border-right: 1px solid black;
     width: 10%;
 }

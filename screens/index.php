@@ -401,16 +401,15 @@
            </tr>
            </table>
         </div>
-        <div class="containerSobre">
+        <div class="containerSobre" style="overflow: hidden;">
             <?php 
                 require_once '../script/ongselectorname.php';
             ?>
 
-            <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%; overflow: hidden">
 
-            <h1 class="tituloContainerONG" style="overflow: hidden"> <b> <a class='nav-link active' href=""> ONG <?php echo $row['ong_nome']; ?> </a> </b> <br><br>
-            <?php echo $row['ong_estado'];?> <br><br>
-            <?php echo $row['ong_cidade'];?> </h1>
+            <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%;">
+            <b> <a class='nav-link active' href="" style="font-size: 250%; position: relative; float: right; right: 10%; top: 10%;">ONG <?php echo $row['ong_nome']; ?> </a> </b> 
+            <h2 style="font-size: 150%; position: relative; top: -25%; left: 40%;">de <?php echo $row['ong_cidade'];?> — <?php echo $row['ong_estado'];?> </h2>
             
             <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">
                  <div id="scroll-text" >
