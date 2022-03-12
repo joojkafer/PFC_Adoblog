@@ -16,26 +16,23 @@ $id = 0;
 //$update = false;
 
 //função de deletar do banco
-if(isset($_GET['delete'])){
-    $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM tb_ong WHERE ong_id=$id") or die($mysqli->error());
-}
+require_once 'delete.php';
 
 //função de capturar os valores e recolocá-los nos campos do form
 if(isset($_GET['edit'])){
     $id = $_GET['edit'];
     $result = $mysqli->query("SELECT * FROM tb_ong WHERE ong_id=$id") or die($mysqli->error());
     
-    if ($result){
+    if($result){
         $row = $result->fetch_array();
 
-        $nome = $row['ong_nome'];
+        $nome        = $row['ong_nome'];
         $razaosocial = $row['ong_razaosocial'];
-        $email = $row['ong_email'];
-        $cnpj = $row['ong_cnpj'];
-        $estado = $row['ong_estado'];
-        $cidade = $row['ong_cidade'];
-        $senha = $row['ong_senha'];
+        $email       = $row['ong_email'];
+        $cnpj        = $row['ong_cnpj'];
+        $estado      = $row['ong_estado'];
+        $cidade      = $row['ong_cidade'];
+        $senha       = $row['ong_senha'];
         
         ?>
         <div style="position:relative;">
@@ -47,7 +44,7 @@ if(isset($_GET['edit'])){
                     <div class="wrap-div">
                         <b> ATUALIZE OS DADOS DA SUA ONG: </b>
                     </div>
-                    <form action="../screens/admongcontrol.php" method="POST">
+                    <form action="../screens/adm/admongcontrol.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
 
                         <input type="text" id="nome" class="fadeIn second" name="nome" value="<?php echo $nome ?>" placeholder="Nome da ONG" required>

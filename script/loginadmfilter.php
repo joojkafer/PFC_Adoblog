@@ -4,11 +4,11 @@
 
     if($_SESSION){
         if($_SESSION['tipo'] != "ADMIN"){
-            header('Location: ../screens/index.php');
+            header('Location: ../../screens/index.php');
             exit();
         }
     }else{
-        header('Location: ../screens/sessionwarning.php');
+        header('Location: ../../screens/sessionwarning.php');
         exit();
     }
 

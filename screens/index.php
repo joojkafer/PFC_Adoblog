@@ -1,5 +1,7 @@
 <?php 
     session_start(); 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,35 +37,35 @@
                     if(!$_SESSION){
                         echo "
                             <li class='nav-item' style='padding-left:18px;'>
-                                <a class='nav-link active' href='doarform.php'> Doe </a>
+                                <a class='nav-link active' href='pub/doarform.php'> Doe </a>
                             </li>
                         ";
                     }else{
                         echo "
                             <li class='nav-item' style='padding-left:18px;'>
-                                <a class='nav-link active' href='createpost.php'> Doe </a>
+                                <a class='nav-link active' href='pub/createpost.php'> Doe </a>
                             </li>
                         ";
                     }
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link active" href="ongpage.php"> ONG's </a>
+                    <a class="nav-link active" href="ong/ongpage.php"> ONG's </a>
                 </li>
                 <?php
                     if(!$_SESSION){
                         echo "
                             <li class='nav-item'>
-                                <a class='nav-link active' href='login.php'> Entrar </a>
+                                <a class='nav-link active' href='logs/login.php'> Entrar </a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link active' href='registerong.php' style='padding-right:18px;'> Cadastrar </a>
+                                <a class='nav-link active' href='logs/registerong.php' style='padding-right:18px;'> Cadastrar </a>
                             </li>
                         ";
                     }else{ 
                         if($_SESSION['tipo'] == "ADMIN"){
                             echo "
                                 <li class='nav-item'>
-                                    <a class='nav-link active' href='admcontrol.php'> Dashboard </a>
+                                    <a class='nav-link active' href='adm/admcontrol.php'> Dashboard </a>
                                 </li>
                             ";
                         }
@@ -75,7 +77,7 @@
 
                         echo "
                             <li class='nav-item'> 
-                                <a class='nav-link active' href='ongpage.php' style='padding-right:18px;'>";
+                                <a class='nav-link active' href='ong/ongprofile.php' style='padding-right:18px;'>";
                                     $nome = $_SESSION['login'];
                                     print_r($nome); 
                         echo "  </a> 
@@ -174,7 +176,7 @@
 
             <td>
             <!-- Button to Open the Modal -->
-                <button type="button" class="botaoAnimal data-toggle="modal" data-target="#myModal">
+                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
                 Open modal
                 </button>
 
@@ -406,9 +408,9 @@
                 require_once '../script/ongselectorname.php';
             ?>
 
-
-            <img src="../images/cachorro1.jpg" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%;">
-            <b> <a class='nav-link active' href="" style="font-size: 250%; position: relative; float: right; right: 10%; top: 10%;">ONG <?php echo $row['ong_nome']; ?> </a> </b> 
+            <img src="../uploads/img_ong/<?php print_r($row['ong_imagem']); ?>" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%;">
+            
+            <b> <a href="ong/ongprofile.php" class='nav-link active' style="font-size: 250%; position: relative; float: right; right: 10%; top: 10%;">ONG <?php echo $row['ong_nome']; ?> </a> </b> 
             <h2 style="font-size: 150%; position: relative; top: -25%; left: 40%;">de <?php echo $row['ong_cidade'];?> — <?php echo $row['ong_estado'];?> </h2>
             
             <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">
@@ -438,14 +440,14 @@
                     <h5>Adote e/ou Doe</h5>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Adote um animal</a></li>
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="doarform.php">Doe um animal</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="pub/doarform.php">Doe um animal</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md ft2">
                     <h5>Conheça as ONG'S</h5>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="registerong.php">Cadastre a sua!</a></li>
-                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="ongpage.php">Página de ONG'S</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="logs/registerong.php">Cadastre a sua!</a></li>
+                        <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="ong/ongpage.php">Página de ONG'S</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md ft3">

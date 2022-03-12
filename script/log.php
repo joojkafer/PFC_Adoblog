@@ -4,7 +4,7 @@
 
     //verifica se os campos estão vazios a fim de evitar formas de burlar o sistema
     if(empty($_POST['login']) || empty($_POST['senha'])){
-        header('Location:../screens/login.php');
+        header('Location:../screens/logs/login.php');
         exit();
     }
 
@@ -34,7 +34,7 @@
             header('Location:../screens/index.php');
             exit();
         }else{
-            header('Location:../screens/loginerror.php');
+            header('Location:../screens/logs/loginerror.php');
         }
     
     } else {
@@ -49,7 +49,7 @@
             header('Location:../screens/index.php');
             exit();
         }else{
-            header('Location:../screens/loginerror.php');
+            header('Location:../screens/logs/loginerror.php');
         }
     }
 

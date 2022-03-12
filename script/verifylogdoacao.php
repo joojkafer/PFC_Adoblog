@@ -3,7 +3,11 @@
     if(!$_SESSION){
         
     }else{
-        header('Location: ../screens/createpost.php');
-        exit();
+        if($_SESSION['tipo'] == "ADMIN"){
+
+        }else{
+            header('Location: ../screens/pub/createpost.php');
+            exit();
+        }
     }
 ?>

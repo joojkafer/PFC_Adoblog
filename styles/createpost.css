@@ -337,6 +337,66 @@ input[type=text]:placeholder{
     border-color: white;
     border-width: 10px;
 }
+
+.fadeIn.fifth{
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+    
+    border-style: hidden;
+    border-color: white;
+    border-width: 10px;
+}
+
+.fadeIn.sixth{
+    -webkit-animation-delay: 1.4s;
+    -moz-animation-delay: 1.4s;
+    animation-delay: 1.4s;
+    
+    border-style: hidden;
+    border-color: white;
+    border-width: 10px;
+}
+
+.fadeIn.seventh{
+    -webkit-animation-delay: 1,6s;
+    -moz-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+    
+    border-style: hidden;
+    border-color: white;
+    border-width: 10px;
+}
+
+.fadeIn.eight{
+    -webkit-animation-delay: 1.8s;
+    -moz-animation-delay: 1.8s;
+    animation-delay: 1.8s;
+    
+    border-style: hidden;
+    border-color: white;
+    border-width: 10px;
+}
+
+.fadeIn.nineth{
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+    
+    border-style: hidden;
+    border-color: white;
+    border-width: 10px;
+}
+
+.fadeIn.ten{
+    -webkit-animation-delay: 2.2s;
+    -moz-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+    
+    border-style: hidden;
+    border-color: white;
+    border-width: 10px;
+}
  
 
 
