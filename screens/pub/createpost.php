@@ -4,6 +4,43 @@
         header('Location: ../pub/doarform.php');
         exit();
     }
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    require_once '../../script/connection.php';
+
+    if(isset($_POST['createpost'])){
+        $today = date("m.d.y hh:mm:ss:sss"); // e.g. "03.10.01"
+        $fileHashNameBased = substr(hash('md5', $today), 0, 15) . basename($_FILES["foto_animal"]["name"]);
+
+        $target_dir  = __DIR__ . "/../../uploads/img_animal/";
+        $target_file = $target_dir . $fileHashNameBased;
+        
+        $uploadOk = 1;
+        
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        move_uploaded_file($_FILES["foto_animal"]["tmp_name"], $target_file);
+
+        $nome      = $_POST['nome'];
+        $raca      = $_POST['raca'];
+        $cor       = $_POST['cor'];
+        $idade     = $_POST['idade'];
+        $descricao = $_POST['descricao'];
+        $estado    = $_POST['estado'];
+        $cidade    = $_POST['cidade'];
+        $telefone  = $_POST['telefone'];
+        $email     = $_POST['email'];
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
+
+        $mysqli->query("INSERT INTO `tb_publicacao`(`pub_nome`, `pub_raca`, `pub_cor`, `pub_idade`, `pub_descricao`, `pub_estado`, `pub_cidade`, `pub_telefone`, `pub_email`, `pub_imagem`) 
+        VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email', '$fileHashNameBased')");
+
+        header('Location: ../index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -74,18 +111,18 @@
 
     <div class="wrapper fadeInDown">
         <div id="formContent" style="min-width: 40%; min-height: 855px;" class="fadeIn first">
-        <div class="fadeIn first">
+            <div class="fadeIn first">
                 <img class="loguserimg" src="../../images/form_icon_register.png" id="icon" alt="User Icon" style="left: 30%; position: relative;" />
             </div>
             <div>
                 <br>
                 <b style="margin:20px; position: absolute; top: 30%; right: 25%;" class="fadeIn second"> PREENCHA COM OS DADOS DO ANIMAL: </b>
             </div>
-            <form>
-                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome" style="width: 60%">
-                <input type="text" id="raca" class="fadeIn second" name="raca" placeholder="Raça" style="width: 60%">
-                <input type="text" id="cor" class="fadeIn third" name="cor" placeholder="Coloração" style="width: 60%">
-                <input type="text" id="idade" class="fadeIn third" name="idade" placeholder="Idade" style="width: 60%">
+            <form method="POST" enctype="multipart/form-data">
+                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome" style="width: 60%" required>
+                <input type="text" id="raca" class="fadeIn second" name="raca" placeholder="Raça" style="width: 60%" required>
+                <input type="text" id="cor" class="fadeIn third" name="cor" placeholder="Coloração" style="width: 60%" required>
+                <input type="text" id="idade" class="fadeIn third" name="idade" placeholder="Idade" style="width: 60%" required>
                 <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Descrição" style="height: 10em; width: 80%;">
 
                 <button type="button" style=" background-color: #A5EB78;
@@ -117,10 +154,14 @@
                 <b style="margin:20px; position: absolute; top: 40%; right: 19%;" class="fadeIn second"> PREENCHA COM OS DADOS DE ENDEREÇO E CONTATO: </b>
             </div>
             
-                <input type="text" id="estado" class="fadeIn second" name="estado" placeholder="Estado" style="width: 60%">
-                <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade" style="width: 60%">
-                <input type="text" id="telefone" class="fadeIn third" name="telefone" placeholder="Telefone" style="width: 60%">
-                <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email" style="width: 60%"><br>
+                <input type="text" id="estado" class="fadeIn second" name="estado" placeholder="Estado" style="width: 60%" required>
+                <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade" style="width: 60%" required>
+                <input type="text" id="telefone" class="fadeIn third" name="telefone" placeholder="Telefone" style="width: 60%" required>
+                <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email" style="width: 60%" required><br>
+                
+                <b class="fadeIn ten">SELECIONE UMA IMAGEM PARA O ANIMAL: </b>
+                <input type="file" name="foto_animal" class="fadeIn ten"> <br/>
+                
                 <button type="button" style=" background-color: #A5EB78;
                                                 border: none;
                                                 color: white;
@@ -138,7 +179,7 @@
                 onclick="buttonBack()">
                 VOLTAR
                 </button>
-                <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" value="CRIAR POSTAGEM">
+                <input type="submit" style="background-color:#A5EB78;"class="fadeIn fourth" name="createpost" value="CRIAR POSTAGEM">
             </form>
         </div>
     </div>

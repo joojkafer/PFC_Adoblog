@@ -45,7 +45,7 @@
             }
                 
             ?>
-            <div style="position:relative; top: 45%;">
+            <div style="position:relative;">
                 <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
                     <div id="formContent">
                         <div class="fadeIn first" style="position: relative; right: 1.5%;">
@@ -81,17 +81,17 @@
     
         //função de atualizar, onde são colocados os novos valores no banco
         if(isset($_POST['update'])){
-            $id = $_POST['id'];
-            $nome =$_POST['nome'];
-            $raca = $_POST['raca'];
-            $cor = $_POST['cor'];
-            $idade = $_POST['idade'];
+            $id        = $_POST['id'];
+            $nome      = $_POST['nome'];
+            $raca      = $_POST['raca'];
+            $cor       = $_POST['cor'];
+            $idade     = $_POST['idade'];
             $descricao = $_POST['descricao'];
-            $estado = $_POST['estado'];
-            $cidade = $_POST['cidade'];
-            $telefone = $_POST['telefone'];
-            $email = $_POST['email'];
-            $imagem = $_POST['imagem'];
+            $estado    = $_POST['estado'];
+            $cidade    = $_POST['cidade'];
+            $telefone  = $_POST['telefone'];
+            $email     = $_POST['email'];
+            $imagem    = $_POST['imagem'];
 
             $mysqli->query("UPDATE tb_publicacao SET 
                 pub_nome=      '$nome', 

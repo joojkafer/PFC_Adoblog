@@ -17,9 +17,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head> 
-
+<?php 
+require_once '../script/postselector.php';
+print_r($postsList); ?>
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
         <a class="navbar-brand" href="index.php"> 
             <img src="../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
@@ -90,317 +92,435 @@
         </div>
     </nav>
 
+    <?php require_once '../script/postselector.php';; ?>
+
     <div class="containerPrincipal fadeIn first">
         <div class="containerUltimosAnimais">
            <table>
-           <tr>
-            <td>
-            <!-- Button to Open the Modal -->
-                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Animal 1
-                </button>
+                <tr>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>);">
+                            <?php echo $row1['pub_nome']; ?>
+                        </button>
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">NOME DO ANIMAL</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row1['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        
-                            <img src="../images/cachorro.png"  class="imgAnimal">
-                        <div class="conteudo-modal">
-                            <h4>Informações do Animal:</h4>
-                            <h5>Nome:</h5>
-                            <h5>Raça:</h5>
-                            <h5>Idade:</h5>
-                            <h5>Coloração:</h5>
-                            <h5>Descrição:</h5>
-                            <h4>Informações de Contato e Endereço:</h4>
-                            <h5>Email:</h5>
-                            <h5>Telefone:</h5>
-                            <h5>Estado:</h5>
-                            <h5>Cidade:</h5>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row1['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row1['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row1['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row1['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row1['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row1['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row1['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row1['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row1['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </td>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    </div>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row2['pub_imagem']; ?>);">
+                            <?php echo $row2['pub_nome']; ?>
+                        </button>
 
-                    </div>
-                </div>
-                </div>
-            </td>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-            <td>
-            <!-- Button to Open the Modal -->
-            <button type="button" class="botaoAnimal data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row2['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row2['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row2['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row2['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row2['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row2['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row2['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row2['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row2['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row2['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row2['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row3['pub_imagem']; ?>);">
+                            <?php echo $row3['pub_nome']; ?>
+                        </button>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    </div>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    </div>
-                </div>
-                </div>
-            </td>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row3['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-            <td>
-            <!-- Button to Open the Modal -->
-                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row3['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row3['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row3['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row3['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row3['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row3['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row3['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row3['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row3['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row3['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                <!-- New Modal Row -->
+                <tr>
+                <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row4['pub_imagem']; ?>);">
+                            <?php echo $row4['pub_nome']; ?>
+                        </button>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row4['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                    </div>
-                </div>
-                </div>
-            </td>
-           </tr>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row4['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row4['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row4['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row4['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row4['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row4['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row4['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row4['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row4['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row4['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-           <tr>
-            <td>
-            <!-- Button to Open the Modal -->
-            <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row5['pub_imagem']; ?>);">
+                            <?php echo $row5['pub_nome']; ?>
+                        </button>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row5['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row5['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row5['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row5['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row5['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row5['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row5['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row5['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row5['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row5['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row5['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-                    </div>
-                </div>
-                </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
 
-            <td>
-            <!-- Button to Open the Modal -->
-            <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row6['pub_imagem']; ?>);">
+                            <?php echo $row6['pub_nome']; ?>
+                        </button>
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row6['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row6['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row6['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row6['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row6['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row6['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row6['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row6['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row6['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row6['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row6['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
 
-                    </div>
-                </div>
-                </div>
-            </td>
+                <!-- New Modal Row -->
+                <tr>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row7['pub_imagem']; ?>);">
+                            <?php echo $row7['pub_nome']; ?>
+                        </button>
 
-            <td>
-            <!-- Button to Open the Modal -->
-                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row7['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row7['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row7['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row7['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row7['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row7['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row7['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row7['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row7['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row7['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row7['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row8['pub_imagem']; ?>);">
+                            <?php echo $row8['pub_nome']; ?>
+                        </button>
 
-                    </div>
-                </div>
-                </div>
-            </td>
-           </tr>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-           <tr>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row8['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-            <td>
-           <!-- Button to Open the Modal -->
-           <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row8['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row8['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row8['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row8['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row8['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row8['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row8['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row8['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row8['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row8['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row9['pub_imagem']; ?>);">
+                            <?php echo $row9['pub_nome']; ?>
+                        </button>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $row9['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-                    </div>
-                </div>
-                </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                
+                                        <img src="../uploads/img_animal/<?php echo $row9['pub_imagem']; ?>" class="imgAnimal">
+                                        <div class="conteudo-modal">
+                                            <h4> <b> Informações do Animal: </b> </h4>
+                                            <h5> <b> Nome: </b> <?php echo $row9['pub_nome']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $row9['pub_raca']; ?> </h5>
+                                            <h5> <b> Idade: </b> <?php echo $row9['pub_idade']; ?> </h5>
+                                            <h5> <b> Coloração: </b> <?php echo $row9['pub_cor']; ?> </h5>
+                                            <h5> <b> Descrição: </b> <?php echo $row9['pub_descricao']; ?> </h5>
+                                            <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                            <h5> <b> Email: </b> <?php echo $row9['pub_email']; ?> </h5>
+                                            <h5> <b> Telefone: </b> <?php echo $row9['pub_telefone']; ?> </h5>
+                                            <h5> <b> Estado: </b> <?php echo $row9['pub_estado']; ?> </h5>
+                                            <h5> <b> Cidade: </b> <?php echo $row9['pub_cidade']; ?> </h5>
+                                        </div>
+                                    </div>
 
-            <td>
-            <!-- Button to Open the Modal -->
-                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
-
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                    </div>
-                </div>
-                </div>
-
-            </td>
-            <td>
-            <!-- Button to Open the Modal -->
-                <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                Open modal
-                </button>
-
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Nome do Animal</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <h5>Nome:</h5>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                    </div>
-                </div>
-                </div>
-            </td>
-           </tr>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
            </table>
         </div>
+
         <div class="containerSobre" style="overflow: hidden;">
             <?php 
                 require_once '../script/ongselectorname.php';
@@ -419,18 +539,17 @@
                  </div>
             </div>
         </div>
+
         <div class="containerMSG">
-           <h1 class="tituloContainer"> <b> Sobre o Blog </b> </h1>
+            <h1 class="tituloContainer"> <b> Sobre o Blog </b> </h1>
             <div class="textoContainer">
                     O Adoblog foi criado a partir da ideia de não ter um local próprio, único e pensando
                     para a adoção e doação de animais. Foi daí que decidimos criar o Adoblog, tendo em mente
                     a produção de algo funcional, rápido e seguro.
             </div>
         </div>
-
-        
-
     </div>
+
     <div class="fadeIn footer">
         <footer class="container-fluid py-3" style="background: #A5EB78; height: 125%;">
             <div class="row">
@@ -455,7 +574,8 @@
                         <li class="nav-item"><a style="color: #303030;" class="nav-link active" href="#">Nossa equipe</a></li>
                     </ul>
                 </div>
+            </div>
         </footer>
     </div>
-    </div>
+
 </body>

@@ -34,11 +34,11 @@
                 $senha       = $row['ong_senha'];
                 
                 ?>
-                <div style="position: relative; top: 45%;">
+                <div style="position:relative;">
                     <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
                         <div id="formContent">
                             <div class="fadeIn first" style="position: relative; right: 1.5%;">
-                                <img class="loguserimg" src="../../images/user_edit_register.png" id="icon" alt="User Icon" />
+                                <img class="loguserimg" src="../images/user_edit_register.png" id="icon" alt="User Icon" />
                             </div>
                             <div class="wrap-div">
                                 <b> ATUALIZE OS DADOS DA SUA ONG: </b>
@@ -65,14 +65,14 @@
 
         //função de atualizar, onde são colocados os novos valores no banco
         if(isset($_POST['update'])){
-            $id = $_POST['id'];
-            $nome =$_POST['nome'];
+            $id          = $_POST['id'];
+            $nome        = $_POST['nome'];
             $razaosocial = $_POST['razaosocial'];
-            $email = $_POST['email'];
-            $cnpj = $_POST['cnpj'];
-            $estado = $_POST['estado'];
-            $cidade = $_POST['cidade'];
-            $senha = $_POST['senha'];
+            $email       = $_POST['email'];
+            $cnpj        = $_POST['cnpj'];
+            $estado      = $_POST['estado'];
+            $cidade      = $_POST['cidade'];
+            $senha       = $_POST['senha'];
 
             $mysqli->query("UPDATE tb_ong SET 
                 ong_nome=       '$nome', 

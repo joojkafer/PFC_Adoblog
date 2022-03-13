@@ -5,14 +5,9 @@
     error_reporting(E_ALL);
 
     require_once '../../script/verifylogdoacao.php';
-
-
-    //função de adição de dados do "formulário para criação de post" no banco
     require_once '../../script/connection.php';
 
-
     if(isset($_POST['sendform'])){
-
         $today = date("m.d.y hh:mm:ss:sss"); // e.g. "03.10.01"
         $fileHashNameBased = substr(hash('md5', $today), 0, 15) . basename($_FILES["foto_animal"]["name"]);
 
@@ -42,7 +37,6 @@
 
         header('Location:doarformsuccess.php');
     }
-
 ?>
 
 
@@ -123,8 +117,6 @@
                 <b> PREENCHA OS CAMPOS ABAIXO COM SEUS <br> RESPECTIVOS DADOS E DO ANIMAL: </b>
             </div>
             <form method="post" enctype="multipart/form-data">
-
-
                 <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome da animal" required>
                 <input type="text" id="raca" class="fadeIn third" name="raca" placeholder="Raça" required>
                 <input type="text" id="cor" class="fadeIn fourth" name="cor" placeholder="Cor" required>
@@ -135,7 +127,7 @@
                 <input type="text" id="telefone" class="fadeIn nineth" name="telefone" placeholder="Telefone" required>
                 <input type="text" id="email" class="fadeIn ten" name="email" placeholder="Email" required>
                 
-                <br />
+                <br/>
 
                 <b class="fadeIn ten">SELECIONE UMA IMAGEM PARA O ANIMAL: </b>
                 <input type="file" name="foto_animal" class="fadeIn ten">

@@ -16,7 +16,6 @@
     //função de adição de dados do "formulário para criação de post" no banco
     require_once '../../script/connection.php';
 
-
     if(isset($_POST['register'])){
 
         $today = date("m.d.y hh:mm:ss:sss"); // e.g. "03.10.01"
@@ -172,22 +171,22 @@
                                                 -webkit-border-radius: 5px 5px 5px 5px;
                                                 border-radius: 5px 5px 5px 5px;
                                                 margin: 5px 20px 40px 20px;" class="fadeIn seventh"
-                onclick="buttonNext()">
-                PRÓXIMO
-            </button>
-        </div>
-        <div id="aux" style="display: none;">
-            <div id="formContent" class="fadeIn first" style="min-width: 500px;">
-                <div class="fadeIn first">
-                    <img class="loguserimg" src="../../images/user_icon_register.png" id="icon" alt="User Icon" />
+                    onclick="buttonNext()">
+                    PRÓXIMO
+                </button>
                 </div>
-                <input type="text" id="estado" class="fadeIn first" name="estado" placeholder="Estado da ONG" required>
-                <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade da ONG" required>
-                <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Escreva Sobre Sua ONG" style="height: 10em; width: 85%;"><BR>
+                <div id="aux" style="display: none;">
+                    <div id="formContent" class="fadeIn first" style="min-width: 500px;">
+                        <div class="fadeIn first">
+                            <img class="loguserimg" src="../../images/user_icon_register.png" id="icon" alt="User Icon" />
+                        </div>
+                        <input type="text" id="estado" class="fadeIn first" name="estado" placeholder="Estado da ONG" required>
+                        <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade da ONG" required>
+                        <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Escreva Sobre Sua ONG" style="height: 10em; width: 85%;"><BR>
                         
-                <b class="fadeIn fourth">SELECIONE UMA IMAGEM PARA A ONG: </b>
-                <input type="file" name="foto_ong" class="fadeIn fifth">
-                <button type="button" style=" background-color: #A5EB78;
+                        <b class="fadeIn fourth">SELECIONE UMA IMAGEM PARA A ONG: </b>
+                        <input type="file" name="foto_ong" class="fadeIn fifth">
+                        <button type="button" style=" background-color: #A5EB78;
                                                     border: none;
                                                     color: white;
                                                     padding: 15px 80px;
@@ -205,12 +204,12 @@
                                                     position: relative;" class="fadeIn sixth"
                                                     onclick="buttonBack()">
                                                     VOLTAR
-                </button>
+                        </button>
                         
-                <input type="submit" style="background-color:#A5EB78; left: 45%; top: 87.5%; position: absolute;"class="fadeIn sixth" name="register" value="Cadastrar">
+                        <input type="submit" style="background-color:#A5EB78; left: 45%; top: 87.5%; position: absolute;"class="fadeIn sixth" name="register" value="Cadastrar">
             </form>
+                </div>
         </div>
-    </div>
     </div>
 
     <div class="fadeIn footer" class="footerMargin">

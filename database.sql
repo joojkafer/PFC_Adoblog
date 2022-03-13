@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `tb_animalform` (
     `anm_raca` VARCHAR(40) NOT NULL,
     `anm_cor` VARCHAR(60) NOT NULL,
     `anm_idade` VARCHAR(20) NOT NULL,
+    `anm_descricao` VARCHAR(255),
     `anm_estado` VARCHAR(20) NOT NULL,
     `anm_cidade` VARCHAR(40) NOT NULL,
     `anm_telefone` VARCHAR(16) NOT NULL,
@@ -41,12 +42,13 @@ CREATE TABLE IF NOT EXISTS `tb_publicacao`(
     `pub_raca` VARCHAR(40) NOT NULL,
     `pub_cor` VARCHAR(60) NOT NULL,
     `pub_idade` VARCHAR(20) NOT NULL,
-    `pub_descricao` VARCHAR(255) NOT NULL,
+    `pub_descricao` VARCHAR(255),
     `pub_estado` VARCHAR(20) NOT NULL,
     `pub_cidade` VARCHAR(40) NOT NULL,
     `pub_telefone` VARCHAR(16) NOT NULL,
     `pub_email` VARCHAR(60) NOT NULL,
     `pub_imagem` VARCHAR(255) NOT NULL,
+    `pub_data` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`pub_id`)
 );
 
