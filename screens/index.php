@@ -414,7 +414,6 @@
             <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">
                  <div id="scroll-text" >
                     <?php
-                        echo $imagem;
                         echo $row['ong_descricao'];
                     ?>
                  </div>

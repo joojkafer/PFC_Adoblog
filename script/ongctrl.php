@@ -34,11 +34,11 @@
                 $senha       = $row['ong_senha'];
                 
                 ?>
-                <div style="position:relative;">
+                <div style="position: relative; top: 45%;">
                     <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
                         <div id="formContent">
                             <div class="fadeIn first" style="position: relative; right: 1.5%;">
-                                <img class="loguserimg" src="../images/user_edit_register.png" id="icon" alt="User Icon" />
+                                <img class="loguserimg" src="../../images/user_edit_register.png" id="icon" alt="User Icon" />
                             </div>
                             <div class="wrap-div">
                                 <b> ATUALIZE OS DADOS DA SUA ONG: </b>

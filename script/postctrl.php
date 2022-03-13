@@ -45,7 +45,7 @@
             }
                 
             ?>
-            <div style="position:relative;">
+            <div style="position:relative; top: 45%;">
                 <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
                     <div id="formContent">
                         <div class="fadeIn first" style="position: relative; right: 1.5%;">
