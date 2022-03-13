@@ -421,8 +421,8 @@ h4{
     float: left;
     left: 2.5%;
     position: relative;
-    width: 45%;
-    height: 45%;
+    width: 400px;
+    height: 400px;
 }
 .botaoAnimal{
     position: relative;
@@ -433,7 +433,7 @@ h4{
     
     background-size: 100% 100%;
     border-radius: 6%;
-    transition: 0.5s;
+    transition: 0.75s;
     background-repeat: no-repeat;
     text-indent: -9999px;
     font-size: 250%;

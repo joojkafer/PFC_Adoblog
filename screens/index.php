@@ -17,9 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head> 
-<?php 
-require_once '../script/postselector.php';
-print_r($postsList); ?>
+
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
         <a class="navbar-brand" href="index.php"> 
@@ -101,12 +99,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>);">
+                            data-target="#myModal1" style="background-image: url(../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>);">
                             <?php echo $row1['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal1" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -147,12 +145,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row2['pub_imagem']; ?>);">
+                            data-target="#myModal2" style="background-image: url(../uploads/img_animal/<?php echo $row2['pub_imagem']; ?>);">
                             <?php echo $row2['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal2" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -193,12 +191,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row3['pub_imagem']; ?>);">
+                            data-target="#myModal3" style="background-image: url(../uploads/img_animal/<?php echo $row3['pub_imagem']; ?>);">
                             <?php echo $row3['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal3" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -242,12 +240,12 @@ print_r($postsList); ?>
                 <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row4['pub_imagem']; ?>);">
+                            data-target="#myModal4" style="background-image: url(../uploads/img_animal/<?php echo $row4['pub_imagem']; ?>);">
                             <?php echo $row4['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal4" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -288,12 +286,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row5['pub_imagem']; ?>);">
+                            data-target="#myModal5" style="background-image: url(../uploads/img_animal/<?php echo $row5['pub_imagem']; ?>);">
                             <?php echo $row5['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal5" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -334,12 +332,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row6['pub_imagem']; ?>);">
+                            data-target="#myModal6" style="background-image: url(../uploads/img_animal/<?php echo $row6['pub_imagem']; ?>);">
                             <?php echo $row6['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal6" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -383,12 +381,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row7['pub_imagem']; ?>);">
+                            data-target="#myModal7" style="background-image: url(../uploads/img_animal/<?php echo $row7['pub_imagem']; ?>);">
                             <?php echo $row7['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal7" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -429,12 +427,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row8['pub_imagem']; ?>);">
+                            data-target="#myModal8" style="background-image: url(../uploads/img_animal/<?php echo $row8['pub_imagem']; ?>);">
                             <?php echo $row8['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal8" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
@@ -475,12 +473,12 @@ print_r($postsList); ?>
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal" style="background-image: url(../uploads/img_animal/<?php echo $row9['pub_imagem']; ?>);">
+                            data-target="#myModal9" style="background-image: url(../uploads/img_animal/<?php echo $row9['pub_imagem']; ?>);">
                             <?php echo $row9['pub_nome']; ?>
                         </button>
 
                         <!-- The Modal -->
-                        <div class="modal fade" id="myModal" data-backdrop="false">
+                        <div class="modal fade" id="myModal9" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
 
