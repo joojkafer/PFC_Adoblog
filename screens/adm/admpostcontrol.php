@@ -1,58 +1,5 @@
 <?php
     require_once '../../script/loginadmfilter.php';
-    require_once '../../script/connection.php';
-
-    if(isset($_GET['edit'])){
-        $id = $_GET['edit'];
-        $result = $mysqli->query("SELECT * FROM tb_publicacao WHERE pub_id=$id") or die($mysqli->error());
-        
-        if ($result){
-            $row = $result->fetch_array();
-    
-            $nome = $row['pub_nome'];
-            $raca = $row['pub_raca'];
-            $cor = $row['pub_cor'];
-            $idade = $row['pub_idade'];
-            $descricao = $row['pub_descricao'];
-            $estado = $row['pub_estado'];
-            $cidade = $row['pub_cidade'];
-            $telefone = $row['pub_telefone'];
-            $email = $row['pub_email'];
-            $imagem = $row['pub_imagem'];   
-?>
-
-            <div style="position:relative;">
-                <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
-                    <div id="formContent">
-                        <div class="fadeIn first" style="position: relative; right: 1.5%;">
-                            <img class="loguserimg" src="../images/user_edit_register.png" id="icon" alt="User Icon" />
-                        </div>
-                        <div class="wrap-div">
-                            <b> ATUALIZE OS DADOS DA SUA ONG: </b>
-                        </div>
-                        <form action="../screens/adm/admongcontrol.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $id ?>">
-    
-                            <input type="text" class="fadeIn second" name="nome" value="<?php echo $nome ?>" placeholder="Nome da ONG" required>
-                            <input type="text" class="fadeIn third" name="raca" value="<?php echo $raca ?>" placeholder="Razão Social" required>
-                            <input type="text" class="fadeIn fourth" name="cor" value="<?php echo $cor ?>" placeholder="Email" required>
-                            <input type="text" class="fadeIn fifth" name="idade" value="<?php echo $idade ?>" placeholder="CNPJ" required>
-                            <input type="text" class="fadeIn sixth" name="descricao" value="<?php echo $descricao ?>" placeholder="Estado da ONG" required>
-                            <input type="text" class="fadeIn seventh" name="estado" value="<?php echo $estado ?>" placeholder="Estado da ONG" required>
-                            <input type="text" class="fadeIn eigth" name="cidade" value="<?php echo $cidade ?>" placeholder="Cidade da ONG" required>
-                            <input type="text" class="fadeIn nineth" name="telefone" value="<?php echo $telefone ?>" placeholder="Estado da ONG" required>
-                            <input type="text" class="fadeIn ten" name="email" value="<?php echo $email ?>" placeholder="Estado da ONG" required>
-                            <input type="text" class="fadeIn ten" name="imagem" value="<?php echo $imagem ?>" placeholder="Senha" required>
-                            
-    
-                            <input type="submit" style="background-color:#A5EB78;"class="fadeIn ten" name="update" value="Atualizar">
-                        </form>
-                   </div>
-               </div>
-            </div>
-        <?php
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +61,7 @@
 
     <?php 
         require_once '../../script/connection.php'; 
-        require_once '../../script/delete.php';
+        require_once '../../script/postctrl.php';
 
         $result = $mysqli->query("SELECT * FROM tb_publicacao") or die($mysqli->error);
     ?>
@@ -151,8 +98,10 @@
                 <td> <?php echo $row['pub_cidade']; ?> </td>
                 <td> <?php echo $row['pub_imagem']; ?></td>
                 <td>
-                    <a href="admpostcontrol.php?edit=<?php echo $row['pub_id']; ?>" class="btn btn-info mx-2"> Editar </a>
-                    <a href="admpostcontrol.php?deletepost=<?php echo $row['pub_id']; ?>" class="btn btn-danger mx-2" style="width: 102.1px"> Excluir </a>  
+                    <a href="admpostcontrol.php?edit=<?php echo $row['pub_id']; ?>" 
+                        class="btn btn-info mx-2"> Editar </a>
+                    <a href="admpostcontrol.php?deletepost=<?php echo $row['pub_id']; ?>" 
+                        class="btn btn-danger mx-2" style="width: 102.1px"> Excluir </a>  
                 </td>
             </tr>
         <?php endwhile; ?>

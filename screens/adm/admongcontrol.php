@@ -59,14 +59,11 @@
         </div>
     </nav>
 
-    <?php require_once '../../script/connection.php';
-          require_once '../../script/ongctrl.php'; ?>
-    
-    <?php
-        //$mysqli = new mysqli('localhost', 'root', '', 'adoblog') or die(mysqli_error($mysqli));
-        $result = $mysqli->query("SELECT * FROM tb_ong") or die($mysqli->error);
+    <?php 
+        require_once '../../script/connection.php';
+        require_once '../../script/ongctrl.php'; 
 
-        //pre_r($result);
+        $result = $mysqli->query("SELECT * FROM tb_ong") or die($mysqli->error);
     ?>
     
     <div style="min-height: 102vh;">

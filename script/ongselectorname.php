@@ -24,7 +24,15 @@
 
     $row = $result->fetch_array();
     $nome = $row['ong_nome'];
-    //echo $nome;
+    $imagem = $row['ong_imagem'];
 
+    if($imagem == "" || NULL){
+        //$a = "aaaaaaaaaaaa";
+        $imagempadrao = "imgpadrao.png";
+    }else{
+        $imagempadrao = $imagem;
+    }
+    
+    //echo $nome;
     //print_r($result->fetch_assoc());
 ?>

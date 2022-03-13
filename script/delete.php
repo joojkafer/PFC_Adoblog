@@ -1,5 +1,7 @@
 <?php
 
+    require_once 'connection.php';
+
 // função de deletar do banco
     if(isset($_GET['deleteform'])){
         $id = $_GET['deleteform'];
