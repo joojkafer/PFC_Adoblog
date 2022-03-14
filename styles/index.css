@@ -427,7 +427,7 @@ h4{
 .botaoAnimal{
     position: relative;
     float: left;
-    width: 99%;
+    width: 101%;
     height: 300%;
     font-weight: bold;
     
@@ -436,7 +436,7 @@ h4{
     transition: 0.75s;
     background-repeat: no-repeat;
     text-indent: -9999px;
-    font-size: 250%;
+    font-size: 200%;
     overflow: hidden;
 }
 .botaoAnimal:hover{

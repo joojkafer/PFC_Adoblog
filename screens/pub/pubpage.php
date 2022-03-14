@@ -97,7 +97,9 @@
              
                 <h2 style="position: relative; left: 30%;"> <b> Conheça os Animais: </b></h2>
                 <br><br>
-                <?php foreach ($pubsList as $pub) : $i=0; $i++?>
+                <?php $i=0;
+                foreach ($pubsList as $pub) : $i++;?>
+                
                         <table class="table" data-toggle="modal" data-target="#myModal<?php echo $i?>">
                             <tr class="tr2">
                                 <td class="tdContent" style="width: 10%; border: none;" rowspan="3" ><img src="../../uploads/img_animal/<?php echo $pub['pub_imagem'];?>"; class="img"></td>
@@ -111,7 +113,7 @@
                             </tr>
                         </table>
                         <br>
-                        
+
                         <div class="modal fade" id="myModal<?php echo $i?>" data-backdrop="false">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -139,6 +141,7 @@
                                             <h5> <b> Estado: </b> <?php echo $pub['pub_estado']; ?> </h5>
                                             <h5> <b> Cidade: </b> <?php echo $pub['pub_cidade']; ?> </h5>
                                         </div>
+                                        
                                     </div>
 
                                     <!-- Modal footer -->
@@ -149,7 +152,7 @@
                             </div>
                         </div>
                         
-                <?php endforeach; ?>
+                <?php  endforeach; ?>
                 
         </div>
         

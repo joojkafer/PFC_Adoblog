@@ -1,7 +1,5 @@
 <?php 
     session_start();
-
-    require_once '../script/ongselectorname.php';
 ?>
 
 <!DOCTYPE html>
@@ -92,15 +90,16 @@
         </div>
     </nav>
 
-    <?php require_once '../script/postselector.php'; ?>
+    <?php require_once '../script/postselector.php';; ?>
 
     <div class="containerPrincipal fadeIn first">
         <div class="containerUltimosAnimais">
            <table>
                 <tr>
                     <td>
+                        
                         <!-- Button to Open the Modal -->
-                        <button type="button" class="botaoAnimal" data-toggle="modal" 
+                        <button id="botao1" type="button" class="botaoAnimal" data-toggle="modal" 
                             data-target="#myModal1" style="background-image: url(../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>);">
                             <?php echo $row1['pub_nome']; ?>
                         </button>
@@ -124,6 +123,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row1['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row1['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row1['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row1['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row1['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row1['pub_descricao']; ?> </h5>
@@ -170,6 +170,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row2['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row2['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row2['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row2['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row2['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row2['pub_descricao']; ?> </h5>
@@ -216,6 +217,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row3['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row3['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row3['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row3['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row3['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row3['pub_descricao']; ?> </h5>
@@ -265,6 +267,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row4['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row4['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row4['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row4['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row4['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row4['pub_descricao']; ?> </h5>
@@ -311,6 +314,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row5['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row5['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row5['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row5['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row5['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row5['pub_descricao']; ?> </h5>
@@ -357,6 +361,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row6['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row6['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row6['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row6['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row6['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row6['pub_descricao']; ?> </h5>
@@ -406,6 +411,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row7['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row7['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row7['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row7['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row7['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row7['pub_descricao']; ?> </h5>
@@ -452,6 +458,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row8['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row8['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row8['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row8['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row8['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row8['pub_descricao']; ?> </h5>
@@ -498,6 +505,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row9['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row9['pub_raca']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row8['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row9['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row9['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row9['pub_descricao']; ?> </h5>
@@ -528,7 +536,7 @@
 
             <img src="../uploads/img_ong/<?php echo $imagempadrao; ?>" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%;">
             
-            <b> <a href="ong/ongprofile.php?pfp= <?php echo $row['ong_id']; ?>" class='nav-link active' style="font-size: 250%; position: relative; float: right; right: 10%; top: 10%;">ONG <?php echo $row['ong_nome']; ?> </a> </b> 
+            <b> <a href="ong/ongprofile.php" class='nav-link active' style="font-size: 250%; position: relative; float: right; right: 10%; top: 10%;">ONG <?php echo $row['ong_nome']; ?> </a> </b> 
             <h2 style="font-size: 150%; position: relative; top: -25%; left: 40%;">de <?php echo $row['ong_cidade'];?> — <?php echo $row['ong_estado'];?> </h2>
             
             <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">

@@ -22,7 +22,7 @@
 
     $result = $mysqli->query("SELECT * FROM tb_ong WHERE ong_id=$nmrrand") or die($mysqli->error());
 
-    $row = $result->fetch_assoc();
+    $row = $result->fetch_array();
     $nome = $row['ong_nome'];
     $imagem = $row['ong_imagem'];
 

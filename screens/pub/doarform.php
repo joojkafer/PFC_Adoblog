@@ -22,6 +22,7 @@
 
         $nome      = $_POST['nome'];
         $raca      = $_POST['raca'];
+        $sexo      = $_POST['sexo'];
         $cor       = $_POST['cor'];
         $idade     = $_POST['idade'];
         $descricao = $_POST['descricao'];
@@ -32,8 +33,8 @@
 
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
 
-        $mysqli->query("INSERT INTO `tb_animalform`(`anm_nome`, `anm_raca`, `anm_cor`, `anm_idade`, `anm_descricao`, `anm_estado`, `anm_cidade`, `anm_telefone`, `anm_email`, `anm_imagem`) 
-        VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email', '$fileHashNameBased')");
+        $mysqli->query("INSERT INTO `tb_animalform`(`anm_nome`, `anm_raca`, `anm_sexo`,  `anm_cor`, `anm_idade`, `anm_descricao`, `anm_estado`, `anm_cidade`, `anm_telefone`, `anm_email`, `anm_imagem`) 
+        VALUES ('$nome', '$raca', '$sexo', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email', '$fileHashNameBased')");
 
         header('Location:doarformsuccess.php');
     }
@@ -119,6 +120,7 @@
             <form method="post" enctype="multipart/form-data">
                 <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome da animal" required>
                 <input type="text" id="raca" class="fadeIn third" name="raca" placeholder="Raça" required>
+                <input type="text" id="sexo" class="fadeIn third" name="sexo" placeholder="Sexo" required>
                 <input type="text" id="cor" class="fadeIn fourth" name="cor" placeholder="Cor" required>
                 <input type="text" id="idade" class="fadeIn fifth" name="idade" placeholder="Idade do animal" required>
                 <input type="text" id="descricao" class="fadeIn sixth" name="descricao" placeholder="Descrição da publicação" required>

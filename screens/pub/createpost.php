@@ -26,6 +26,7 @@
 
         $nome      = $_POST['nome'];
         $raca      = $_POST['raca'];
+        $sexo      = $_POST['sexo'];
         $cor       = $_POST['cor'];
         $idade     = $_POST['idade'];
         $descricao = $_POST['descricao'];
@@ -36,8 +37,8 @@
 
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
 
-        $mysqli->query("INSERT INTO `tb_publicacao`(`pub_nome`, `pub_raca`, `pub_cor`, `pub_idade`, `pub_descricao`, `pub_estado`, `pub_cidade`, `pub_telefone`, `pub_email`, `pub_imagem`) 
-        VALUES ('$nome', '$raca', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email', '$fileHashNameBased')");
+        $mysqli->query("INSERT INTO `tb_publicacao`(`pub_nome`, `pub_raca`, `pub_sexo`, `pub_cor`, `pub_idade`, `pub_descricao`, `pub_estado`, `pub_cidade`, `pub_telefone`, `pub_email`, `pub_imagem`) 
+        VALUES ('$nome', '$raca', '$sexo', '$cor', '$idade', '$descricao', '$estado', '$cidade', '$telefone', '$email', '$fileHashNameBased')");
 
         header('Location: ../index.php');
     }
@@ -110,7 +111,7 @@
     </nav>
 
     <div class="wrapper fadeInDown">
-        <div id="formContent" style="min-width: 40%; min-height: 855px;" class="fadeIn first">
+        <div id="formContent" style="min-width: 40%; min-height: 899px; position: relative; top: 10%" class="fadeIn first">
             <div class="fadeIn first">
                 <img class="loguserimg" src="../../images/form_icon_register.png" id="icon" alt="User Icon" style="left: 30%; position: relative;" />
             </div>
@@ -121,6 +122,7 @@
             <form method="POST" enctype="multipart/form-data">
                 <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome" style="width: 60%" required>
                 <input type="text" id="raca" class="fadeIn second" name="raca" placeholder="Raça" style="width: 60%" required>
+                <input type="text" id="sexo" class="fadeIn second" name="sexo" placeholder="Sexo" style="width: 60%" required>
                 <input type="text" id="cor" class="fadeIn third" name="cor" placeholder="Coloração" style="width: 60%" required>
                 <input type="text" id="idade" class="fadeIn third" name="idade" placeholder="Idade" style="width: 60%" required>
                 <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Descrição" style="height: 10em; width: 80%;">

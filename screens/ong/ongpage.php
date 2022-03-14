@@ -98,17 +98,9 @@
                 <h2 style="position: relative; left: 30%;"> <b> Conheça as ONG'S: </b></h2>
                 <br><br>
                 <?php foreach ($ongsList as $ong) : ?>
-                    <?php $imagem = $ong['ong_imagem'];
-
-                        if($imagem == "" || NULL){
-                            //$a = "aaaaaaaaaaaa";
-                            $imagempadrao = "imgpadrao.png";
-                        }else{
-                            $imagempadrao = $imagem;
-                    }?>
                         <table class="table">
-                            <tr class="tr2" onclick="window.location='ongprofile.php?pfp= <?php echo $ong['ong_id']; ?>'">
-                                <td class="tdContent" style="width: 10%; border: none;" rowspan="3" ><img src="../../uploads/img_ong/<?php echo $imagempadrao;?>"; class="img"></td>
+                            <tr class="tr2" onclick="window.location='../index.php'">
+                                <td class="tdContent" style="width: 10%; border: none;" rowspan="3" ><img src="../../uploads/img_ong/<?php echo $ong['ong_imagem'];?>"; class="img"></td>
                                 <td class="tdContent" style="width: 10%; border: none; border-bottom: 2px solid black;" > <?php echo $ong['ong_nome']; ?> </td>
                             </tr>
                             <tr class="tr2">
