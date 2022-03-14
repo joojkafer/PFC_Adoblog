@@ -94,30 +94,33 @@
 
     <div class="containerPrincipal fadeIn first">
         <div class="containerPaginas fadeIn first">
-            <table class="table">
-                <thead>
-                    <tr class="tr2">
-                        <th style="border-right: 1px solid black; border-bottom: 1px solid black"> Imagem </th>
-                        <th style="border-bottom: 1px solid black"> Nome </th>
-                        <th style="border-bottom: 1px solid black"> Estado </th>
-                        <th style="border-bottom: 1px solid black"> Cidade </th>
-                        <th style="border-left: 1px solid black; border-bottom: 1px solid black"> Descrição </th>
-                    </tr>
-                </thead>
-                
+             
+                <h2 style="position: relative; left: 30%;"> <b> Conheça as ONG'S: </b></h2>
+                <br><br>
                 <?php foreach ($ongsList as $ong) : ?>
+                    <?php $imagem = $ong['ong_imagem'];
 
-                    <tr class="tr2" onclick="window.location='../index.php'">
-                        <td class="tdimg">img</td>
-                        <td style="width: 10%; "> <?php echo $ong['ong_nome']; ?> </td>
-                        <td style="width: 10%; "> <?php echo $ong['ong_estado']; ?> </td>
-                        <td style="width: 10%; "> <?php echo $ong['ong_cidade']; ?> </td>
-                        <td style="width: 30%;  border-left: 1px solid black;"> <?php echo $ong['ong_descricao']; ?> </td>
-                    </tr>
-                
+                        if($imagem == "" || NULL){
+                            //$a = "aaaaaaaaaaaa";
+                            $imagempadrao = "imgpadrao.png";
+                        }else{
+                            $imagempadrao = $imagem;
+                    }?>
+                        <table class="table">
+                            <tr class="tr2" onclick="window.location='ongprofile.php?pfp= <?php echo $ong['ong_id']; ?>'">
+                                <td class="tdContent" style="width: 10%; border: none;" rowspan="3" ><img src="../../uploads/img_ong/<?php echo $imagempadrao;?>"; class="img"></td>
+                                <td class="tdContent" style="width: 10%; border: none; border-bottom: 2px solid black;" > <?php echo $ong['ong_nome']; ?> </td>
+                            </tr>
+                            <tr class="tr2">
+                                <td style="width: 10%; border: none;" class="tdContent"> de <?php echo $ong['ong_cidade'];?> - <?php echo $ong['ong_estado'] ?> </td> 
+                            </tr>
+                            <tr class="tr2">
+                                <td style="width: 30%;border: none; " class="tdContent"> <?php echo $ong['ong_descricao']; ?> </td>
+                            </tr>
+                        </table>
+                        <br>
                 <?php endforeach; ?>
-                
-            </table>
+            
         </div>
         
     </div>

@@ -1,0 +1,306 @@
+/* HEADER */
+
+a{
+    text-decoration: none;
+    color: black;
+    float: left;
+    font-size: 28px;
+    font-weight: bolder;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar.navbar-expand-lg.navbar-light{
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    position: relative;
+    height: 15%;
+}
+
+
+.botaoHref{
+ font-size: 150%;
+}
+
+/* BASIC */
+  
+body{
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+}
+  
+a{
+    color: #cccccc;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+
+}
+
+.thumbnail{
+    width: 140px;
+    height: 120px;
+    transition: .2s;
+    margin: 0 auto;
+}
+
+.thumbnail:hover{
+    transform: scale(1.2);
+}
+
+.nav-link.active{
+    transition: transform .2s;
+}
+
+.nav-link.active:hover{
+    text-shadow:3px 3px 3px #303030;
+    transform: scale(1.1);
+    /*box-shadow: 0 0 11px rgba(33,33,33,.2);
+    border-radius:10px;
+    border: 1px solid rgba(33,33,33,.2);*/
+}
+  
+h2{
+    text-align: center;
+    font-size: 16%;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px; 
+    color: #cccccc;
+}
+
+
+
+/* FOOTER */
+  
+.fadeIn.footer{
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}  
+
+.col-6.col-md.ft1{
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.col-6.col-md.ft2{  
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+
+.col-6.col-md.ft3{
+    -webkit-animation-delay: 1.4s;
+    -moz-animation-delay: 1.4s;
+    animation-delay: 1.4s;
+}
+
+
+  
+/* ANIMATIONS */
+  
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown{
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+  
+@-webkit-keyframes fadeInDown{
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+  
+@keyframes fadeInDown{
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+  
+
+
+/* Simple CSS3 Fade-in Animation */
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  
+.fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+  
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+  
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+}
+  
+.fadeIn.first{
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+  
+.fadeIn.second{
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+  
+.fadeIn.third{
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+  
+.fadeIn.fourth{
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+    
+    border-style: hidden;
+    border-color: white;
+    border-width: 10px;
+}
+ 
+
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #cccccc;
+    content: "";
+    transition: width 0.2s;
+}
+  
+.underlineHover:hover {
+    color: #0d0d0d;
+}
+  
+.underlineHover:hover:after{
+    width: 100%;
+}
+  
+
+
+/* OTHERS */
+  
+*:focus {
+      outline: none;
+} 
+  
+#icon {
+    width:60%;
+}
+
+/* CONTEUDO */
+.containerPrincipal{
+    position: relative;
+    width: 100%;
+    background-color: rgb(255, 254, 185);
+}
+
+.containerPaginas{
+    position: relative;
+    width: 50%;
+    top: 1%;
+    bottom: 1%;
+    left: 25%;
+    border-radius: 20px;
+}
+td{
+    border: none;
+}
+.tr2{
+    border: none;
+    transition: 0.1s;
+    grid-column: 1/4;
+    font-size: 135%;
+}
+.table{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: 0.5s;
+
+}
+
+.table:hover{
+    background-color: lightblue;
+    transition: 0.5s;
+    font-weight: bold;
+    transform: scale(1.1);
+
+}
+
+.img{
+    width: 100%;
+    border-radius: 50%; 
+    height: 150px;  
+    margin-top: 1; 
+    margin-left: 1%;
+}
+.modal-dialog{
+    position: absolute;
+    top: 20%;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+    min-width: 55%;
+ }
+ .conteudo-modal{
+     float: left;
+     bottom: 5%;
+     width: 45%;
+     left: 6.5%;
+     position: relative;
+     text-align: justify;
+     height: 90%;
+ }
+ 
+ h4{
+     border-bottom: 2px solid black;
+ }
+ .imgAnimal{
+     float: left;
+     left: 2.5%;
+     position: relative;
+     width: 400px;
+     height: 400px;
+ }
