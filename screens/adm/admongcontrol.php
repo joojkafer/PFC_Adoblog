@@ -76,6 +76,7 @@
                     <th> CNPJ </th>
                     <th> Estado </th>
                     <th> Cidade </th>
+                    <th> Telefone </th>
                     <th> Senha </th>
                     <th> Imagem </th>
                     <th colspan="2"> Funções </th>
@@ -91,6 +92,7 @@
                 <td> <?php echo $row['ong_cnpj']; ?> </td>
                 <td> <?php echo $row['ong_estado']; ?> </td>
                 <td> <?php echo $row['ong_cidade']; ?> </td>
+                <td> <?php echo $row['ong_telefone']; ?> </td>
                 <td> <?php echo $row['ong_senha']; ?> </td>
                 <td> <?php echo $row['ong_imagem']; ?> </td>
                 <td>

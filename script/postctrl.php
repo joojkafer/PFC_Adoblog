@@ -34,18 +34,19 @@
             
                 $nome      = $row['pub_nome'];
                 $raca      = $row['pub_raca'];
+                $sexo      = $row['pub_sexo'];
                 $cor       = $row['pub_cor'];
                 $idade     = $row['pub_idade'];
                 $descricao = $row['pub_descricao'];
                 $estado    = $row['pub_estado'];
                 $cidade    = $row['pub_cidade'];
                 $telefone  = $row['pub_telefone'];
-                 $email    = $row['pub_email'];
+                $email    = $row['pub_email'];
                 $imagem    = $row['pub_imagem'];   
             }
                 
             ?>
-            <div style="position:relative;">
+            <div style="position:relative; top: 50%;">
                 <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
                     <div id="formContent">
                         <div class="fadeIn first" style="position: relative; right: 1.5%;">
@@ -59,6 +60,7 @@
             
                             <input type="text" class="fadeIn second" name="nome" value="<?php echo $nome ?>" placeholder="Nome do animal">
                             <input type="text" class="fadeIn third" name="raca" value="<?php echo $raca ?>" placeholder="Raça">
+                            <input type="text" class="fadeIn third" name="sexo" value="<?php echo $sexo ?>" placeholder="Sexo">
                             <input type="text" class="fadeIn fourth" name="cor" value="<?php echo $cor ?>" placeholder="Coloração">
                             <input type="text" class="fadeIn fifth" name="idade" value="<?php echo $idade ?>" placeholder="Idade do animal" required>
                             <input type="text" class="fadeIn sixth" name="descricao" value="<?php echo $descricao ?>" placeholder="Descrição" required>

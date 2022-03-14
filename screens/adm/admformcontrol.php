@@ -72,6 +72,7 @@
                 <tr>
                     <th> Nome </th>
                     <th> Raça </th>
+                    <th> Sexo </th>
                     <th> Cor </th>
                     <th> Idade </th>
                     <th> Descrição </th>
@@ -89,6 +90,7 @@
             <tr>
                 <td> <?php echo $row['anm_nome']; ?> </td>
                 <td> <?php echo $row['anm_raca']; ?> </td>
+                <td> <?php echo $row['anm_sexo']; ?> </td>
                 <td> <?php echo $row['anm_cor']; ?> </td>
                 <td> <?php echo $row['anm_idade']; ?> </td>
                 <td> <?php echo $row['anm_descricao']; ?> </td>

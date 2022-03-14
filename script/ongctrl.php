@@ -31,14 +31,15 @@
                 $cnpj        = $row['ong_cnpj'];
                 $estado      = $row['ong_estado'];
                 $cidade      = $row['ong_cidade'];
+                $telefone    = $row['ong_telefone'];
                 $senha       = $row['ong_senha'];
                 
                 ?>
-                <div style="position:relative;">
+                <div style="position:relative; top: 50%;">
                     <div class="wrapper fadeInDown" style="position:absolute; max-height: 50%; z-index: 10040;">
                         <div id="formContent">
                             <div class="fadeIn first" style="position: relative; right: 1.5%;">
-                                <img class="loguserimg" src="../images/user_edit_register.png" id="icon" alt="User Icon" />
+                                <img class="loguserimg" src="../../images/user_edit_register.png" id="icon" alt="User Icon" />
                             </div>
                             <div class="wrap-div">
                                 <b> ATUALIZE OS DADOS DA SUA ONG: </b>
@@ -52,6 +53,7 @@
                                 <input type="text" id="cnpj" class="fadeIn fifth" name="cnpj" value="<?php echo $cnpj ?>" placeholder="CNPJ" required>
                                 <input type="text" id="estado" class="fadeIn sixth" name="estado" value="<?php echo $estado ?>" placeholder="Estado da ONG" required>
                                 <input type="text" id="cidade" class="fadeIn seventh" name="cidade" value="<?php echo $cidade ?>" placeholder="Cidade da ONG" required>
+                                <input type="text" id="telefone" class="fadeIn seventh" name="telefone" value="<?php echo $telefone ?>" placeholder="Telefone da ONG" required>
                                 <input type="text" id="senha" class="fadeIn eigth" name="senha" value="<?php echo $senha ?>" placeholder="Senha" required>
 
                                 <input type="submit" style="background-color:#A5EB78;"class="fadeIn nineth" name="update" value="Atualizar">

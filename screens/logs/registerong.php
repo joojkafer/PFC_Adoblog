@@ -36,6 +36,7 @@
         $cnpj        = $_POST['cnpj'];
         $estado      = $_POST['estado'];
         $cidade      = $_POST['cidade'];
+        $telefone      = $_POST['telefone'];
         $senha       = $_POST['senha'];
         $descricao   = $_POST['descricao'];
 
@@ -55,8 +56,8 @@
 
             <?php
         }else{
-            $mysqli->query("INSERT INTO `tb_ong`(`ong_nome`, `ong_razaosocial`, `ong_email`, `ong_cnpj`, `ong_estado`, `ong_cidade`, `ong_senha`, `ong_descricao`, `ong_imagem`) 
-            VALUES ('$nome', '$razaosocial', '$email', '$cnpj', '$estado', '$cidade', '$senha','$descricao','$fileHashNameBased')");
+            $mysqli->query("INSERT INTO `tb_ong`(`ong_nome`, `ong_razaosocial`, `ong_email`, `ong_cnpj`, `ong_estado`, `ong_cidade`, `ong_telefone`, `ong_senha`, `ong_descricao`, `ong_imagem`) 
+            VALUES ('$nome', '$razaosocial', '$email', '$cnpj', '$estado', '$cidade', '$telefone', '$senha','$descricao','$fileHashNameBased')");
 
             header('Location:registersuccess.php');
         }
@@ -182,6 +183,7 @@
                         </div>
                         <input type="text" id="estado" class="fadeIn first" name="estado" placeholder="Estado da ONG" required>
                         <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade da ONG" required>
+                        <input type="text" id="telefone" class="fadeIn second" name="telefone" placeholder="Telefone da ONG" required>
                         <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Escreva Sobre Sua ONG" style="height: 10em; width: 85%;"><BR>
                         
                         <b class="fadeIn fourth">SELECIONE UMA IMAGEM PARA A ONG: </b>
@@ -206,7 +208,7 @@
                                                     VOLTAR
                         </button>
                         
-                        <input type="submit" style="background-color:#A5EB78; left: 45%; top: 87.5%; position: absolute;"class="fadeIn sixth" name="register" value="Cadastrar">
+                        <input type="submit" style="background-color:#A5EB78; left: 45%; top: 88.5%; position: absolute;"class="fadeIn sixth" name="register" value="Cadastrar">
             </form>
                 </div>
         </div>

@@ -13,8 +13,7 @@
     $row7 = $postsList[6];
     $row8 = $postsList[7];
     $row9 = $postsList[8];
-    
-    
+
     /*
     //row1
     $result = $mysqli->query("SELECT * FROM tb_publicacao ORDER BY pub_id DESC LIMIT 1;") or die($mysqli->error());
