@@ -33,6 +33,7 @@
                 $cidade      = $row['ong_cidade'];
                 $telefone    = $row['ong_telefone'];
                 $senha       = $row['ong_senha'];
+                $descricao   = $row['ong_descricao']
                 
                 ?>
                 <div style="position:relative; top: 50%;">
@@ -55,6 +56,7 @@
                                 <input type="text" id="cidade" class="fadeIn seventh" name="cidade" value="<?php echo $cidade ?>" placeholder="Cidade da ONG" required>
                                 <input type="text" id="telefone" class="fadeIn seventh" name="telefone" value="<?php echo $telefone ?>" placeholder="Telefone da ONG" required>
                                 <input type="text" id="senha" class="fadeIn eigth" name="senha" value="<?php echo $senha ?>" placeholder="Senha" required>
+                                <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Escreva Sobre Sua ONG" style="height: 10em; width: 85%;"><BR>
 
                                 <input type="submit" style="background-color:#A5EB78;"class="fadeIn nineth" name="update" value="Atualizar">
                             </form>
@@ -75,6 +77,7 @@
             $estado      = $_POST['estado'];
             $cidade      = $_POST['cidade'];
             $senha       = $_POST['senha'];
+            $descricao   = $_POST['descricao'];
 
             $mysqli->query("UPDATE tb_ong SET 
                 ong_nome=       '$nome', 
@@ -83,7 +86,8 @@
                 ong_cnpj=       '$cnpj', 
                 ong_estado=     '$estado', 
                 ong_cidade=     '$cidade', 
-                ong_senha=      '$senha'
+                ong_senha=      '$senha',
+                ong_descricao=  '$descricao'
             WHERE ong_id=$id") or die($mysqli->error);
         }
     ?>

@@ -266,9 +266,7 @@ h2{
     overflow: hidden;
 }
 .containerSobre{
-    
     border-radius: 30px;
-    position: relative;
     height: 68%;
     width: 45%;
     margin-top: 1%;
@@ -276,6 +274,13 @@ h2{
     border: rgb(22, 89, 177) solid 3px;
 }
 
+.nomeONG{
+    color: blue;
+}
+.nomeONG:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
 .tituloContainer{
     position: relative;
     text-align: center;

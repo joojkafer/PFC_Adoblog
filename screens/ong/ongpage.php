@@ -35,26 +35,34 @@
         </a>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto" style="border: 1px solid black;
+            <ul class="navbar-nav mx-auto" style="border: 1px solid black;
                                                   border-radius: 8px;
                                                   padding-top: 0px;
                                                   padding-bottom: 0px;
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
-                <li class='nav-item' style='padding-left:18px;'>
-                    <a class='nav-link active' href='../index.php'> Adote </a>
+                <?php
+                    if(!$_SESSION){
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='../pub/doarform.php'> Doe </a>
+                            </li>
+                        ";
+                    }else{
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='../pub/createpost.php'> Doe </a>
+                            </li>
+                        ";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../pub/pubpage.php"> Adote </a>
                 </li>
-
-                <?php if(!$_SESSION): ?>    
-                    <li class='nav-item'>
-                        <a class='nav-link active' href='../pub/doarform.php'> Doe </a>
-                    </li>
-                <?php else: ?>
-                    <li class='nav-item'>
-                        <a class='nav-link active' href='../pub/createpost.php'> Doe </a>
-                    </li>
-                <?php endif; ?>
-
+                <li class="nav-item">
+                    <a class="nav-link active" href="ongpage.php"> ONG's </a>
+                </li>
+                
                 <?php
                     if(!$_SESSION){
                         echo "
@@ -89,6 +97,10 @@
                     }
                 ?>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Procurar..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+            </form>
         </div>
     </nav>
 
@@ -98,6 +110,7 @@
                 <h2 style="position: relative; left: 30%;"> <b> Conheça as ONG'S: </b></h2>
                 <br><br>
                 <?php foreach ($ongsList as $ong) : ?>
+                
                     <?php $imagem = $ong['ong_imagem'];
 
                         if($imagem == "" || NULL){

@@ -37,12 +37,12 @@ a{
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
-
 }
 
 .thumbnail{
     width: 140px;
     height: 120px;
+
     transition: .2s;
     margin: 0 auto;
 }
@@ -75,15 +75,19 @@ h2{
 
 
 
+
+
 /* FOOTER */
   
 .fadeIn.footer{
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+
+    width: 100%;
 }  
 
 .col-6.col-md.ft1{
@@ -92,7 +96,7 @@ h2{
     animation-delay: 1s;
 }
 
-.col-6.col-md.ft2{  
+.col-6.col-md.ft2{
     -webkit-animation-delay: 1.2s;
     -moz-animation-delay: 1.2s;
     animation-delay: 1.2s;
@@ -105,6 +109,130 @@ h2{
 }
 
 
+
+/* STRUCTURE */
+
+.loguserimg{
+    border-style: solid;
+    border-color: white;
+    border-width:15px;
+}
+  
+.wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+}
+  
+#formContent{
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+}
+  
+#formFooter{
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+  
+  
+  
+/* TABS */
+  
+h2.inactive{
+    color: #cccccc;
+}
+  
+h2.active{
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+}
+    
+
+
+/* FORM TYPOGRAPHY*/
+  
+input[type=button], input[type=submit], input[type=reset]{
+    background-color: #A5EB78;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(76, 81, 83, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+  
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #cccccc;
+}
+  
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+  
+input[type=text]{
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+  
+input[type=text]:focus{
+    background-color: #fff;
+    border-bottom: 2px solid #cccccc;
+}
+  
+input[type=text]:placeholder{
+    color: #cccccc;
+}
+  
+  
   
 /* ANIMATIONS */
   
@@ -112,8 +240,8 @@ h2{
 .fadeInDown{
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
@@ -167,9 +295,12 @@ h2{
 }
   
 .fadeIn.first{
-    -webkit-animation-delay: 0.2s;
-    -moz-animation-delay: 0.2s;
-    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+
+    width: 460px;
+    height: 300px;
 }
   
 .fadeIn.second{
@@ -226,51 +357,4 @@ h2{
   
 #icon {
     width:60%;
-}
-
-/* CONTEUDO */
-.containerPrincipal{
-    position: relative;
-    width: 100%;
-    background-color: rgb(255, 254, 185);
-    height: 100%;
-}
-
-.containerPaginas{
-    position: relative;
-    width: 50%;
-    top: 1%;
-    bottom: 1%;
-    left: 25%;
-    border-radius: 20px;
-}
-td{
-    border: none;
-}
-.tr2{
-    border: none;
-    transition: 0.1s;
-    grid-column: 1/4;
-    font-size: 135%;
-}
-.table{
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    transition: 0.5s;
-
-}
-
-.table:hover{
-    background-color: lightblue;
-    transition: 0.5s;
-    font-weight: bold;
-    transform: scale(1.1);
-
-}
-
-.img{
-    width: 100%;
-    border-radius: 50%; 
-    height: 150px;  
-    margin-top: 1; 
-    margin-left: 1%;
 }

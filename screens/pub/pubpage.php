@@ -35,26 +35,34 @@
         </a>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto" style="border: 1px solid black;
+            <ul class="navbar-nav mx-auto" style="border: 1px solid black;
                                                   border-radius: 8px;
                                                   padding-top: 0px;
                                                   padding-bottom: 0px;
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
-                <li class='nav-item' style='padding-left:18px;'>
-                    <a class='nav-link active' href='../index.php'> Adote </a>
+                <?php
+                    if(!$_SESSION){
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='doarform.php'> Doe </a>
+                            </li>
+                        ";
+                    }else{
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='createpost.php'> Doe </a>
+                            </li>
+                        ";
+                    }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link active" href="pubpage.php"> Adote </a>
                 </li>
-
-                <?php if(!$_SESSION): ?>    
-                    <li class='nav-item'>
-                        <a class='nav-link active' href='../pub/doarform.php'> Doe </a>
-                    </li>
-                <?php else: ?>
-                    <li class='nav-item'>
-                        <a class='nav-link active' href='../pub/createpost.php'> Doe </a>
-                    </li>
-                <?php endif; ?>
-
+                <li class="nav-item">
+                    <a class="nav-link active" href="../ong/ongpage.php"> ONG's </a>
+                </li>
+                
                 <?php
                     if(!$_SESSION){
                         echo "
@@ -81,7 +89,7 @@
 
                         echo "
                             <li class='nav-item'> 
-                                <a class='nav-link active' href='ongprofile.php' style='padding-right:18px;'>";
+                                <a class='nav-link active' href='../ong/ongprofile.php' style='padding-right:18px;'>";
                                     $nome = $_SESSION['login'];
                                     print_r($nome); 
                         echo "  </a> 
@@ -89,6 +97,10 @@
                     }
                 ?>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Procurar..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+            </form>
         </div>
     </nav>
 
@@ -132,6 +144,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $pub['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $pub['pub_raca']; ?> </h5>
+                                            <h5> <b> Raça: </b> <?php echo $pub['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $pub['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $pub['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $pub['pub_descricao']; ?> </h5>

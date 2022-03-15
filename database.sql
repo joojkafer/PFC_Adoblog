@@ -52,5 +52,7 @@ CREATE TABLE IF NOT EXISTS `tb_publicacao`(
     `pub_email` VARCHAR(60) NOT NULL,
     `pub_imagem` VARCHAR(255) NOT NULL,
     `pub_data` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `id_ong` INT(11) NULL,
+    `id_admin` INT(11) NULL,
     PRIMARY KEY (`pub_id`)
 );

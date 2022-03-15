@@ -47,8 +47,12 @@
                     }
                 ?>
                 <li class="nav-item">
+                    <a class="nav-link active" href="pub/pubpage.php"> Adote </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" href="ong/ongpage.php"> ONG's </a>
                 </li>
+                
                 <?php
                     if(!$_SESSION){
                         echo "
@@ -90,7 +94,7 @@
         </div>
     </nav>
 
-    <?php require_once '../script/postselector.php';; ?>
+    <?php require_once '../script/postselector.php'; ?>
 
     <div class="containerPrincipal fadeIn first">
         <div class="containerUltimosAnimais">
@@ -100,7 +104,7 @@
                         
                         <!-- Button to Open the Modal -->
                         <button id="botao1" type="button" class="botaoAnimal" data-toggle="modal" 
-                            data-target="#myModal1" style=" background-image: url(../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>);">
+                            data-target="#myModal1" style="background-image: url(../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>);">
                             <?php echo $row1['pub_nome']; ?>
                         </button>
 
@@ -117,7 +121,7 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                
+
                                         <img src="../uploads/img_animal/<?php echo $row1['pub_imagem']; ?>" class="imgAnimal">
                                         <div class="conteudo-modal">
                                             <h4> <b> Informações do Animal: </b> </h4>
@@ -505,7 +509,7 @@
                                             <h4> <b> Informações do Animal: </b> </h4>
                                             <h5> <b> Nome: </b> <?php echo $row9['pub_nome']; ?> </h5>
                                             <h5> <b> Raça: </b> <?php echo $row9['pub_raca']; ?> </h5>
-                                            <h5> <b> Sexo: </b> <?php echo $row8['pub_sexo']; ?> </h5>
+                                            <h5> <b> Sexo: </b> <?php echo $row9['pub_sexo']; ?> </h5>
                                             <h5> <b> Idade: </b> <?php echo $row9['pub_idade']; ?> </h5>
                                             <h5> <b> Coloração: </b> <?php echo $row9['pub_cor']; ?> </h5>
                                             <h5> <b> Descrição: </b> <?php echo $row9['pub_descricao']; ?> </h5>
@@ -529,15 +533,15 @@
            </table>
         </div>
 
-        <div class="containerSobre" style="overflow: hidden;">
+        <div class="containerSobre" style="overflow: hidden; text-align: center">
             <?php 
                 require_once '../script/ongselectorname.php';
             ?>
 
-            <img src="../uploads/img_ong/<?php echo $imagempadrao; ?>" style="border-radius: 50%; height: 35%; width: 30%; margin: 5%;">
+            <img src="../uploads/img_ong/<?php echo $imagempadrao; ?>" style="border-radius: 50%; height: 250px; width: 250px; margin: 5%;">
             
-            <b> <a href="ong/ongprofile.php?pfp= <?php echo $row['ong_id']; ?>" class='nav-link active' style="font-size: 250%; position: relative; float: right; right: 10%; top: 10%;">ONG <?php echo $row['ong_nome']; ?> </a> </b> 
-            <h2 style="font-size: 150%; position: relative; top: -25%; left: 40%;">de <?php echo $row['ong_cidade'];?> — <?php echo $row['ong_estado'];?> </h2>
+            <b> <h2 onclick="window.location='ong/ongprofile.php?pfp= <?php echo $row['ong_id']; ?>'" class='nomeONG'>ONG <?php echo $row['ong_nome']; ?> </h2> </b> 
+            <h2 style="font-size: 150%;">de <?php echo $row['ong_cidade'];?> — <?php echo $row['ong_estado'];?> </h2>
             
             <div class="textoContainer" style="height: 38%; top: 10%; border-bottom: none; ">
                  <div id="scroll-text" >

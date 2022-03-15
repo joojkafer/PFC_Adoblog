@@ -1,74 +1,69 @@
 <?php 
-    session_start(); 
-    if($_SESSION){
-        if($_SESSION['tipo'] == "ADMIN"){
-
-        }else{
-            header('Location: ../sessionwarning.php');
-            exit();
-        }
-    }
 
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    session_start(); 
+
+    if(!$_SESSION || !isset($_SESSION['ong_id'])){
+        header('Location: ../sessionwarning.php');
+    }
+
+
     //função de adição de dados do "formulário para criação de post" no banco
     require_once '../../script/connection.php';
-
-    if(isset($_POST['register'])){
-
-        $today = date("m.d.y hh:mm:ss:sss"); // e.g. "03.10.01"
-        $fileHashNameBased = substr(hash('md5', $today), 0, 15) . basename($_FILES["foto_ong"]["name"]);
-
-        $target_dir  = __DIR__ . "/../../uploads/img_ong/";
-        $target_file = $target_dir . $fileHashNameBased;
+    
+        $id = $_SESSION['ong_id'];
+        $result = $mysqli->query("SELECT * FROM tb_ong WHERE ong_id=$id") or die($mysqli->error());
         
-        $uploadOk = 1;
-        
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        if($result){
+            $row = $result->fetch_array();
 
-        move_uploaded_file($_FILES["foto_ong"]["tmp_name"], $target_file);
-
-        $nome        = $_POST['nome'];
-        $razaosocial = $_POST['razaosocial'];
-        $email       = $_POST['email'];
-        $cnpj        = $_POST['cnpj'];
-        $estado      = $_POST['estado'];
-        $cidade      = $_POST['cidade'];
-        $telefone      = $_POST['telefone'];
-        $senha       = $_POST['senha'];
-        $descricao   = $_POST['descricao'];
-
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);  
-
-        $resultemail = $mysqli->query("SELECT * FROM tb_ong WHERE ong_email='$email'") or die($mysqli->error());
-        $resultcnpj = $mysqli->query("SELECT * FROM tb_ong WHERE ong_cnpj='$cnpj'") or die($mysqli->error());
-        
-        //verificação de dados como 'email' e 'cnpj', afim de verificar se
-        //já são dados existentes no banco e impedir de cadastrar iguais
-        if(mysqli_num_rows($resultemail) == 1 || mysqli_num_rows($resultcnpj) == 1){
-            ?>
-
-            <script> 
-                alert('Email ou CNPJ já cadastrados, tente novamente com outros dados.');
-            </script>
-
-            <?php
-        }else{
-            $mysqli->query("INSERT INTO `tb_ong`(`ong_nome`, `ong_razaosocial`, `ong_email`, `ong_cnpj`, `ong_estado`, `ong_cidade`, `ong_telefone`, `ong_senha`, `ong_descricao`, `ong_imagem`) 
-            VALUES ('$nome', '$razaosocial', '$email', '$cnpj', '$estado', '$cidade', '$telefone', '$senha','$descricao','$fileHashNameBased')");
-
-            header('Location:registersuccess.php');
+            $nome        = $row['ong_nome'] ?? $row['ong_nome'] ?? '';
+            $razaosocial = $row['ong_razaosocial'] ?? $row['ong_razaosocial'] ?? '';
+            $email       = $row['ong_email'] ?? $row['ong_email'] ?? '';
+            $cnpj        = $row['ong_cnpj'] ?? $row['ong_cnpj'] ?? '';
+            $estado      = $row['ong_estado'] ?? $row['ong_estado'] ?? '';
+            $cidade      = $row['ong_cidade'] ?? $row['ong_cidade'] ?? '';
+            $telefone    = $row['ong_telefone'] ?? $row['ong_telefone'] ?? '';
+            $senha       = $row['ong_senha'] ?? $row['ong_senha'] ?? '';
+            $descricao   = $row['ong_descricao'] ?? $row['ong_descricao'] ?? '';
+            
         }
-    }
+
+        if(isset($_POST['update'])){
+            $nome        = $_POST['nome'];
+            $razaosocial = $_POST['razaosocial'];
+            $email       = $_POST['email'];
+            $cnpj        = $_POST['cnpj'];
+            $estado      = $_POST['estado'];
+            $cidade      = $_POST['cidade'];
+            $senha       = $_POST['senha'];
+            $descricao   = $_POST['descricao'];
+
+            $mysqli->query("UPDATE tb_ong SET 
+                ong_nome=       '$nome', 
+                ong_razaosocial='$razaosocial', 
+                ong_email=      '$email', 
+                ong_cnpj=       '$cnpj', 
+                ong_estado=     '$estado', 
+                ong_cidade=     '$cidade', 
+                ong_senha=      '$senha',
+                ong_descricao=  '$descricao'
+            WHERE ong_id=$id") or die($mysqli->error);
+
+            header('Location: ongprofile.php');
+        }
+
+    
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar | Adoblog</title>
+    <title>Editar | Adoblog</title>
     <link rel="stylesheet" type="text/css" href="../../styles/register.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -88,7 +83,7 @@
 
 </head>
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
         <a class="navbar-brand" href="../index.php"> 
             <img src="../../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
@@ -149,8 +144,7 @@
                         echo "
                             <li class='nav-item'> 
                                 <a class='nav-link active' href='../ong/ongprofile.php' style='padding-right:18px;'>";
-                                    $nome = $_SESSION['login'];
-                                    print_r($nome); 
+                                    print($nome); 
                         echo "  </a> 
                             </li>";
                     }
@@ -170,14 +164,14 @@
             </div>
             
             <div>
-                <b> INSIRA OS DADOS DA SUA ONG: </b>
+                <b> EDITE OS DADOS DA SUA ONG: </b>
             </div>
             <form method="POST" enctype="multipart/form-data">
-                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome da ONG" required>
-                <input type="text" id="razaosocial" class="fadeIn third" name="razaosocial" placeholder="Razão Social" required>
-                <input type="text" id="email" class="fadeIn fourth" name="email" placeholder="Email" required>
-                <input type="text" id="cnpj" class="fadeIn fifth" name="cnpj" placeholder="CNPJ" required>
-                <input type="password" id="senha" class="fadeIn sixth" name="senha" placeholder="Senha" required>
+                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Nome da ONG" value="<?= $nome ?>" required>
+                <input type="text" id="razaosocial" class="fadeIn third" name="razaosocial" placeholder="Razão Social" value="<?= $razaosocial ?>" required>
+                <input type="text" id="email" class="fadeIn fourth" name="email" placeholder="Email" value="<?= $email ?>" required>
+                <input type="text" id="cnpj" class="fadeIn fifth" name="cnpj" placeholder="CNPJ" value="<?= $cnpj ?>" required>
+                <input type="password" id="senha" class="fadeIn sixth" name="senha" placeholder="Senha" value="<?= $senha ?>" required>
                 <button type="button" style=" background-color: #A5EB78;
                                                 border: none;
                                                 color: white;
@@ -201,10 +195,10 @@
                         <div class="fadeIn first">
                             <img class="loguserimg" src="../../images/user_icon_register.png" id="icon" alt="User Icon" />
                         </div>
-                        <input type="text" id="estado" class="fadeIn first" name="estado" placeholder="Estado da ONG" required>
-                        <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade da ONG" required>
-                        <input type="text" id="telefone" class="fadeIn second" name="telefone" placeholder="Telefone da ONG" required>
-                        <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Escreva Sobre Sua ONG" style="height: 10em; width: 85%;"><BR>
+                        <input type="text" id="estado" class="fadeIn first" name="estado" placeholder="Estado da ONG" value=" <?= $estado ?> " required/>
+                        <input type="text" id="cidade" class="fadeIn second" name="cidade" placeholder="Cidade da ONG" value=" <?= $cidade ?> " required >
+                        <input type="text" id="telefone" class="fadeIn second" name="telefone" placeholder="Telefone da ONG" value=" <?= $telefone ?> " required>
+                        <input type="text" id="descricao" class="fadeIn third" name="descricao" placeholder="Escreva Sobre Sua ONG" style="height: 10em; width: 85%;" value=" <?= $descricao ?> "><BR>
                         
                         <b class="fadeIn fourth">SELECIONE UMA IMAGEM PARA A ONG: </b>
                         <input type="file" name="foto_ong" class="fadeIn fifth">
@@ -228,7 +222,7 @@
                                                     VOLTAR
                         </button>
                         
-                        <input type="submit" style="background-color:#A5EB78; left: 45%; top: 88.5%; position: absolute;"class="fadeIn sixth" name="register" value="Cadastrar">
+                        <input type="submit" style="background-color:#A5EB78; left: 45%; top: 88.5%; position: absolute;"class="fadeIn sixth" name="update" value="Atualizar">
             </form>
                 </div>
         </div>

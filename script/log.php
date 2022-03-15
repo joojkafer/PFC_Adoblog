@@ -43,6 +43,7 @@
             $rowong = $resultong->fetch_array();
             $nome = $rowong['ong_nome'];
 
+            $_SESSION['ong_id']  =  $rowong['ong_id'];
             $_SESSION['login'] = $nome;
             $_SESSION['tipo']  = "ONG";
 

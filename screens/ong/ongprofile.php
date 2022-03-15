@@ -2,20 +2,52 @@
     session_start(); 
 
     require_once '../../script/connection.php';
+
+    $id = "";
+    $donodaong = false;
+
     if(isset($_GET['pfp'])){
         $id = $_GET['pfp'];
 
-        $result = $mysqli->query("SELECT * FROM tb_ong WHERE ong_id='$id'");
-        $row = $result->fetch_array();
-
-        $imagem = $row['ong_imagem'];
-        if($imagem == "" || NULL){
-            //$a = "aaaaaaaaaaaa";
-            $imagempadrao = "imgpadrao.png";
-        }else{
-            $imagempadrao = $imagem;
+        if($id == $_SESSION['ong_id']){
+            $donodaong = true;
         }
+
+    } else {
+        if(isset($_SESSION['ong_id'])){
+
+            $id = $_SESSION['ong_id'];
+            $donodaong = true;
+        }
+
     }
+
+    $result = $mysqli->query("SELECT * FROM tb_ong WHERE ong_id='$id'");
+    $row = $result->fetch_array();
+
+    $imagem = $row['ong_imagem'];
+    
+    if($imagem == "" || NULL){
+    
+        $imagempadrao = "imgpadrao.png";
+    
+    }else{
+    
+        $imagempadrao = $imagem;
+    
+    }
+
+    // ANIMAIS PARA ADOCAO DA ONG
+
+    $resultSet = $mysqli->query("SELECT * FROM tb_publicacao WHERE id_ong = $id");
+    $listaAnimais = $resultSet->fetch_all(MYSQLI_ASSOC);
+
+    // print('<pre>');
+    // print_r($listaAnimais);
+    // print('</pre>');
+
+    //exit;
+
 ?>
 
 <!DOCTYPE html>
@@ -35,35 +67,40 @@
 </head> 
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78;">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #A5EB78; overflow: hidden">
         <a class="navbar-brand" href="../index.php"> 
             <img src="../../images/logo.png"  class="thumbnail"  alt="Logo"> 
         </a>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto" style="border: 1px solid black;
+            <ul class="navbar-nav mx-auto" style="border: 1px solid black;
                                                   border-radius: 8px;
                                                   padding-top: 0px;
                                                   padding-bottom: 0px;
                                                   margin-right: 10px;
                                                   margin-left: 10px;">
-                <li class='nav-item' style='padding-left:18px;'>
-                    <a class='nav-link active' href='../index.php'> Adote </a>
-                </li>
-
-                <?php if(!$_SESSION): ?>    
-                    <li class='nav-item'>
-                        <a class='nav-link active' href='../pub/doarform.php'> Doe </a>
-                    </li>
-                <?php else: ?>
-                    <li class='nav-item'>
-                        <a class='nav-link active' href='../pub/createpost.php'> Doe </a>
-                    </li>
-                <?php endif; ?>
-
+                <?php
+                    if(!$_SESSION){
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='../pub/doarform.php'> Doe </a>
+                            </li>
+                        ";
+                    }else{
+                        echo "
+                            <li class='nav-item' style='padding-left:18px;'>
+                                <a class='nav-link active' href='../pub/createpost.php'> Doe </a>
+                            </li>
+                        ";
+                    }
+                ?>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../ong/ongpage.php"> ONG's </a>
+                    <a class="nav-link active" href="../pub/pubpage.php"> Adote </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="ongpage.php"> ONG's </a>
+                </li>
+                
                 <?php
                     if(!$_SESSION){
                         echo "
@@ -91,222 +128,97 @@
                         echo "
                             <li class='nav-item'> 
                                 <a class='nav-link active' href='ongprofile.php' style='padding-right:18px;'>";
-                                    $nome = $_SESSION['login'];
-                                    print_r($nome); 
+                                    print($row['ong_nome']); 
                         echo "  </a> 
                             </li>";
                     }
                 ?>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Procurar..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+            </form>
         </div>
     </nav>
 
     <div class="containerPrincipal fadeIn first">
         <div class="containerPerfil">
+                <h2 class="estadoOng"><?php echo $row['ong_estado']; ?><br>
+                <?php echo $row['ong_cidade']; ?></h2> 
+                <img src="../../uploads/img_ong/<?php echo $imagempadrao; ?>" class="Img"><br> 
+                <h2 class="telefoneOng"><?php echo $row['ong_telefone']; ?> <br>
+                <?php echo $row['ong_email']; ?> </h2>  
 
-            <div class="containerImg">
-                <img src="../../uploads/img_ong/<?php echo $imagempadrao; ?>" style=" width: 250px; height: 250px;"> 
-            </div>
-    
-            <div class="containerInfo">
+                    <?php if($donodaong): ?>
+                        <a href="editarongpfp.php"> Editar </a>
+                    <?php endif; ?>
 
-            <h1 class="nomeOng"> <b> <?php echo $row['ong_nome']; ?> </b> </h1>
-            <h2 class="descricaoOng"> <?php echo $row['ong_descricao']; ?> </h2>
-            <h2 class="contatoOng"> <b> Contatos: </b> <br> 
-            <?php echo $row['ong_email']; ?> <br> <?php echo $row['ong_email']; ?> </h2>
-            </div>
+                    <h1 class="nomeOng"> <b> <?php echo $row['ong_nome']; ?> </b> </h1>
+                    <h2 class="descricaoOng"> <?php echo $row['ong_descricao']; ?> </h2>
+                    
 
             <div class="containerAnimais">
-            <table>
-                <tr>
-                    <td>
-                    <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                    Animal 1
-                    </button>
 
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
+                    <?php
+                    $i=0;
+                    $tablewidth = '33%;';
+                    foreach($listaAnimais as $animal):;
+                    if ($i >=4){
+                        break;
+                    }
+                    $i++
+                    ?>
+                <table style="width: 33%; float: left; position: relative;">
+                    <tr>
+                        <td>
+                        <button type="button" class="botaoAnimal" style="background-image: url(../../uploads/img_animal/<?php echo $animal['pub_imagem']; ?>); width: 100%;" data-toggle="modal" data-target="#myModal<?php echo $i?>">
+                            <?php echo $animal['pub_nome']; ?>
+                        </button>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">NOME DO ANIMAL</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal<?php echo $i?>" data-backdrop="false">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> <?php echo $animal['pub_nome']; ?> </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
                         
-                            <img src="../../images/cachorro.png"  class="imgAnimal">
-                        <div class="conteudo-modal">
-                            <h4>Informações do Animal:</h4>
-                            <h5>Nome:</h5>
-                            <h5>Raça:</h5>
-                            <h5>Idade:</h5>
-                            <h5>Coloração:</h5>
-                            <h5>Descrição:</h5>
-                            <br>
-                            <h4>Informações de Contato e Endereço:</h4>
-                            <h5>Email:</h5>
-                            <h5>Telefone:</h5>
-                            <h5>Estado:</h5>
-                            <h5>Cidade:</h5>
+                                    <img src="../../uploads/img_animal/<?php echo $animal['pub_imagem']; ?>" class="imgAnimal">
+                                            <div class="conteudo-modal">
+                                                <h4> <b> Informações do Animal: </b> </h4>
+                                                <h5> <b> Nome: </b> <?php echo $animal['pub_nome']; ?> </h5>
+                                                <h5> <b> Raça: </b> <?php echo $animal['pub_raca']; ?> </h5>
+                                                <h5> <b> Sexo: </b> <?php echo $animal['pub_sexo']; ?> </h5>
+                                                <h5> <b> Idade: </b> <?php echo $animal['pub_idade']; ?> </h5>
+                                                <h5> <b> Coloração: </b> <?php echo $animal['pub_cor']; ?> </h5>
+                                                <h5> <b> Descrição: </b> <?php echo $animal['pub_descricao']; ?> </h5>
+                                                <h4> <b> Informações de Contato e Endereço: </b> </h4>
+                                                <h5> <b> Email: </b> <?php echo $animal['pub_email']; ?> </h5>
+                                                <h5> <b> Telefone: </b> <?php echo $animal['pub_telefone']; ?> </h5>
+                                                <h5> <b> Estado: </b> <?php echo $animal['pub_estado']; ?> </h5>
+                                                <h5> <b> Cidade: </b> <?php echo $animal['pub_cidade']; ?> </h5>
+                                            </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                    </div>
-                </div>
-                </div>
                     </td>
-
-                    <td>
-                    <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                    Animal 1
-                    </button>
-
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">NOME DO ANIMAL</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        
-                            <img src="../../images/cachorro.png"  class="imgAnimal">
-                        <div class="conteudo-modal">
-                            <h4>Informações do Animal:</h4>
-                            <h5>Nome:</h5>
-                            <h5>Raça:</h5>
-                            <h5>Idade:</h5>
-                            <h5>Coloração:</h5>
-                            <h5>Descrição:</h5>
-                            <br>
-                            <h4>Informações de Contato e Endereço:</h4>
-                            <h5>Email:</h5>
-                            <h5>Telefone:</h5>
-                            <h5>Estado:</h5>
-                            <h5>Cidade:</h5>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                    </div>
-                </div>
-                </div>
-                    </td>
-
-                    <td>
-                    <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                    Animal 1
-                    </button>
-
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">NOME DO ANIMAL</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        
-                            <img src="../../images/cachorro.png"  class="imgAnimal">
-                        <div class="conteudo-modal">
-                            <h4>Informações do Animal:</h4>
-                            <h5>Nome:</h5>
-                            <h5>Raça:</h5>
-                            <h5>Idade:</h5>
-                            <h5>Coloração:</h5>
-                            <h5>Descrição:</h5>
-                            <br>
-                            <h4>Informações de Contato e Endereço:</h4>
-                            <h5>Email:</h5>
-                            <h5>Telefone:</h5>
-                            <h5>Estado:</h5>
-                            <h5>Cidade:</h5>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                    </div>
-                </div>
-                </div>
-                    </td>
-
-                    <td>
-                    <button type="button" class="botaoAnimal" data-toggle="modal" data-target="#myModal">
-                    Animal 1
-                    </button>
-
-                <!-- The Modal -->
-                <div class="modal fade" id="myModal" data-backdrop="false">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">NOME DO ANIMAL</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        
-                            <img src="../../images/cachorro.png"  class="imgAnimal">
-                        <div class="conteudo-modal">
-                            <h4>Informações do Animal:</h4>
-                            <h5>Nome:</h5>
-                            <h5>Raça:</h5>
-                            <h5>Idade:</h5>
-                            <h5>Coloração:</h5>
-                            <h5>Descrição:</h5>
-                            <br>
-                            <h4>Informações de Contato e Endereço:</h4>
-                            <h5>Email:</h5>
-                            <h5>Telefone:</h5>
-                            <h5>Estado:</h5>
-                            <h5>Cidade:</h5>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                    </div>
-                </div>
-                </div>
-                    </td>
-
-                </tr>
+                    <?php endforeach ?>
+                   
             </table>
             </div>
-
         </div>
         
 
